@@ -12,3 +12,4 @@ dependencies:
   - statsmodels
   - pip:
     - jupyter-book
+    - pandas_datareader

@@ -9,6 +9,8 @@
 # To kill the environment
 #	conda deactivate
 #	conda remove --name fds --all
+# To make the book github-able, use
+#	ghp-import -n -p -f _build/html
 
 
 - file: intro
@@ -26,3 +28,9 @@
   - file: Ch1/simulation
   - file: Ch1/regression
   - file: Ch1/hw
+
+- part: APIs
+  chapters:
+  - file: Ch2/intro_to_apis
+  - file: Ch2/using_apis
+  - file: Ch2/pandas_datareader

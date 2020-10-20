@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Intro to APIS &#8212; Finance Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using APIs" href="using_apis.html" />
+    <link rel="prev" title="Homework Assignment" href="../Ch1/hw.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Finance Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Financial Modeling and Analytics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Preliminaries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/basic_ingredients.html">
+   Basic Ingredients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/loops_and_lists.html">
+   Loops and Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/dictionaries_and_dataframes.html">
+   Dictionaries and DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/descriptives.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/simulation.html">
+   Simulating Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Intro to APIS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="using_apis.html">
+   Using APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_datareader.html">
+   pandas_datareader
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch2/intro_to_apis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/financedatascience/financedatascience.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/financedatascience/financedatascience.github.io/issues/new?title=Issue%20on%20page%20%2FCh2/intro_to_apis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/financedatascience/financedatascience.github.io/master?urlpath=tree/Ch2/intro_to_apis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-programming-interface-api">
+   Application Programming Interface (API)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#international-space-station-tracking">
+   International Space Station Tracking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datamuse-text">
+   DataMuse Text
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="intro-to-apis">
+<h1>Intro to APIS<a class="headerlink" href="#intro-to-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="application-programming-interface-api">
+<h2>Application Programming Interface (API)<a class="headerlink" href="#application-programming-interface-api" title="Permalink to this headline">¶</a></h2>
+<p>In a later chapter, we’ll cover web scraping (accessing website data).  There, our goal is to instruct Python to visit a web page and download some data.  The procedure is to have Python mimic human behavior.  That is, Python visits a URL (as a human would), read over the page (as a human would), and then acquire data (again, as a human would).  For instance, a web scraping task might be to tell Python to go to Wikipedia and look up the date Elon Musk was born.  Python would go to the relevant web page on Wikipedia, read over the HTML, and extract the data (determine Musk’s birth date).</p>
+<p>The problem with web scraping is that it is unnecessarily complicated.  While, at least for many sites, scraping is not terribly difficult, it’s more than is needed.  Ultimately, the fundamental difficulty of scraping is that we’re taking effort to teach Python how to be human.</p>
+<p>An easier solution, when available, is to use an Application Programming Interface (API) to collect web data.  Not every website has an API, but many do.  Essentially, an API is a method for Python to access the data on a website without needing to be instructed in how to replicate human behavior.  This is because an API is a special interface, designed for programmers, to connect their programs to the website of interest.  You may think of an API as the way a program is intended to “read” a website (as opposed to how humans read websites).</p>
+<p>In this part of the chapter, we’ll look at two simple APIs.  Many APIs that exist will follow the structure of those presented here, but with additional features.  At the end of this chapter, we’ll use an API provided by the U.S. Census to access some demographic data and combine that data with home prices.</p>
+</div>
+<div class="section" id="international-space-station-tracking">
+<h2>International Space Station Tracking<a class="headerlink" href="#international-space-station-tracking" title="Permalink to this headline">¶</a></h2>
+<p>Our first example comes from <a class="reference external" href="http://open-notify.org/">open-notify.org</a>, a simple website designed to connect NASA data to users via a small API.  The documentation for how to use this API to track the position of the International Space Station is provided <a class="reference external" href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/">here</a>.</p>
+<p>The Open-Notify API, like all APIs, exists to serve data to programmers who know how to ask for it.  In Python, we can <em>request</em> data from the Open-Notify API with the <code class="docutils literal notranslate"><span class="pre">requests</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">requests</span></code> module, we simply have to point Python to the right webpage.  The Open-Notify documentation for ISS data tells us that the data is located at http://api.open-notify.org/iss-now.json.  Open this link in a new browser tab to get a sense of what this page looks like.  Notice that it is very sparse, there are no images, text formatting, or anything.  It’s simply a line of information.  Pages designed for programs to read do not need any of the embellishments added for human eyes, because only programs are intended to read them.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> module can access the above URL with the following line of code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://api.open-notify.org/iss-now.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see what Python got from visiting the URL by printing the output.  Note, however, that the <code class="docutils literal notranslate"><span class="pre">output</span></code> variable is a special variable constructed by the <code class="docutils literal notranslate"><span class="pre">requests</span></code> module.  Two things worth mentioning here are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output.status_code</span></code></p>
+<ul>
+<li><p>this prints out the status code of the URL visited (e.g. 404 indicates that the page does not exist, 200 indicates that the page visit went as intended)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output.json()</span></code></p>
+<ul>
+<li><p>this returns a Python dictionary variable with all of the data collected from the URL</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iss</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;message&#39;: &#39;success&#39;, &#39;iss_position&#39;: {&#39;longitude&#39;: &#39;22.6975&#39;, &#39;latitude&#39;: &#39;-47.8955&#39;}, &#39;timestamp&#39;: 1603231821}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the above is a nested dictionary.  The key <code class="docutils literal notranslate"><span class="pre">'iss_position'</span></code> has a value that is itself another dictionary.</p>
+<p>Recall that values to a dicationary are accessed by using their keys.  For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">iss</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iss</span><span class="p">[</span><span class="s1">&#39;iss_position&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>success
+{&#39;longitude&#39;: &#39;22.6975&#39;, &#39;latitude&#39;: &#39;-47.8955&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>To access the latitude and longitude of the International Space Station, we would thus enter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The latitude is:&#39;</span><span class="p">,</span> <span class="n">iss</span><span class="p">[</span><span class="s1">&#39;iss_position&#39;</span><span class="p">][</span><span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The longitude is:&#39;</span><span class="p">,</span> <span class="n">iss</span><span class="p">[</span><span class="s1">&#39;iss_position&#39;</span><span class="p">][</span><span class="s1">&#39;longitude&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The latitude is: -47.8955
+The longitude is: 22.6975
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="datamuse-text">
+<h2>DataMuse Text<a class="headerlink" href="#datamuse-text" title="Permalink to this headline">¶</a></h2>
+<p>As our first foray into textual analysis, we’ll explore the API on <a class="reference external" href="https://www.datamuse.com/api/">DataMuse</a>.  This server provides a system for querying the meaning of words, their comman usages, synonyms, etc.</p>
+<p>The basic structure of this API is straightforward.  Any URL is accessed in three parts:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'https://api.datamuse.com/words?'</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p>This is the beginning of the URL</p></li>
+</ul>
+<ol class="simple">
+<li><p>A code that indicates the type of query we want:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'ml='</span></code> specifies that we want to find related words</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'rel_rhy='</span></code> specifies that we want to find rhyming words</p></li>
+<li><p>‘<code class="docutils literal notranslate"><span class="pre">rel_jjb='</span></code> specifies that we want to find adjectives used to describe a word</p></li>
+</ul>
+<ol class="simple">
+<li><p>The word in question</p></li>
+</ol>
+<p>Hence, suppose we wanted to write a rap song about accounts payable, and needed something to rhyme with ‘payable’.  The relevant query would be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">payable_rhyme</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.datamuse.com/words?rel_rhy=payable&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">payable_rhyme</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;word&#39;: &#39;sayable&#39;, &#39;score&#39;: 77, &#39;numSyllables&#39;: 3}, {&#39;word&#39;: &#39;playable&#39;, &#39;score&#39;: 67, &#39;numSyllables&#39;: 3}, {&#39;word&#39;: &#39;repayable&#39;, &#39;score&#39;: 53, &#39;numSyllables&#39;: 4}, {&#39;word&#39;: &#39;weighable&#39;, &#39;score&#39;: 41, &#39;numSyllables&#39;: 3}, {&#39;word&#39;: &#39;unpayable&#39;, &#39;score&#39;: 32, &#39;numSyllables&#39;: 4}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s always useful to print out some of the return value, as we did above.  Note that the structure here is a list of dictionaries, with each dictionary corresponding to a unique word that rhymes with ‘payable’.</p>
+<p>The first rhyming word we get is accessible like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">payable_rhyme</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;word&#39;: &#39;sayable&#39;, &#39;score&#39;: 77, &#39;numSyllables&#39;: 3}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that DataMuse is helpful here: it tells us three things (i.e. there are three keys).  First, it tells us the rhyming word using the <code class="docutils literal notranslate"><span class="pre">'word'</span></code> key.  Second, it tells us a score for how “good” that word is at rhyming with the word ‘payable’ with the <code class="docutils literal notranslate"><span class="pre">'score'</span></code> key.  Third, it tells us how many syllables are in the rhyming word with the <code class="docutils literal notranslate"><span class="pre">numSyllables</span></code> key (useful if you need to write a sonnet!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.geeksforgeeks.org/convert-text-speech-python/</span>
+<span class="o">!</span>pip3 install gTTS
+<span class="kn">from</span> <span class="nn">gtts</span> <span class="kn">import</span> <span class="n">gTTS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gTTS
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading gTTS-2.1.1-py3-none-any.whl (25 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: beautifulsoup4 in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from gTTS) (4.9.3)
+Requirement already satisfied: requests in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from gTTS) (2.24.0)
+Requirement already satisfied: six in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from gTTS) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gtts-token&gt;=1.1.3
+  Downloading gTTS-token-1.1.3.tar.gz (3.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from gTTS) (7.1.2)
+Requirement already satisfied: soupsieve&gt;1.2; python_version &gt;= &quot;3.0&quot; in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from beautifulsoup4-&gt;gTTS) (2.0.1)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from requests-&gt;gTTS) (1.25.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from requests-&gt;gTTS) (2020.6.20)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from requests-&gt;gTTS) (3.0.4)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages (from requests-&gt;gTTS) (2.10)
+Building wheels for collected packages: gtts-token
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for gtts-token (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Created wheel for gtts-token: filename=gTTS_token-1.1.3-py3-none-any.whl size=4097 sha256=54bfb68303a6b85aeacf00eac1dee2b0bdba86b3e76853c8416aee9dc148d0fe
+  Stored in directory: /home/james/.cache/pip/wheels/c1/78/25/81270af5521d88ea8db7da5d4f64872673976eb9692bcb0c13
+Successfully built gtts-token
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: gtts-token, gTTS
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed gTTS-2.1.1 gtts-token-1.1.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mytext</span> <span class="o">=</span> <span class="s1">&#39;I have a lot of accounts payable, when I get the cash is not sayable&#39;</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;en&#39;</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="n">gTTS</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">mytext</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">language</span><span class="p">,</span> <span class="n">slow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">myobj</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;rap.mp3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A more practical application of the DataMuse system is to use it to observe how important jargon can be to business language.  This point was first articulated in Tim Loughran and Bill McDonald’s <a class="reference external" href="https://doi.org/10.1111/j.1540-6261.2010.01625.x">2011 article</a> in the Journal of Finance.  When performing textual analysis, as we will in a later chapter, an important task is to teach Python the meaning of English words.  There are resources online for this, and DataMuse is one such tool.  For instance, if we want to know words similar to the word ‘crude’, we could do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crude_words</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.datamuse.com/words?ml=crude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crude_words</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="c1"># limit output to 10 most relevant words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;word&#39;: &#39;crude oil&#39;, &#39;score&#39;: 117457, &#39;tags&#39;: [&#39;syn&#39;, &#39;n&#39;, &#39;adj&#39;]}, {&#39;word&#39;: &#39;petroleum&#39;, &#39;score&#39;: 108426, &#39;tags&#39;: [&#39;syn&#39;, &#39;n&#39;]}, {&#39;word&#39;: &#39;unrefined&#39;, &#39;score&#39;: 100480, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;]}, {&#39;word&#39;: &#39;vulgar&#39;, &#39;score&#39;: 100287, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;, &#39;n&#39;]}, {&#39;word&#39;: &#39;coarse&#39;, &#39;score&#39;: 97826, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;]}, {&#39;word&#39;: &#39;rude&#39;, &#39;score&#39;: 97072, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;]}, {&#39;word&#39;: &#39;indecent&#39;, &#39;score&#39;: 96770, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;]}, {&#39;word&#39;: &#39;earthy&#39;, &#39;score&#39;: 96131, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;]}, {&#39;word&#39;: &#39;raw&#39;, &#39;score&#39;: 95837, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;, &#39;n&#39;]}, {&#39;word&#39;: &#39;gross&#39;, &#39;score&#39;: 95227, &#39;tags&#39;: [&#39;syn&#39;, &#39;adj&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is useful because we can have a situation where one document discusses ‘crude’ prices, while another document discusses ‘petroleum’ prices.  Python doesn’t innately know that ‘crude’ and ‘petroleum’ are related, so we need tools like these in order to clarify to Python that documents discussing ‘crude’ prices and ‘petroleum’ prices are likely to be related topics.</p>
+<p>Side note: while outside the scope of what is covered in these chapters, some of you may be interested to know that, with a large body of documents, you can <em>teach</em> Python to realize that ‘crude’ and ‘petroleum’ are related words using an unsupervised machine learning tool called Latent Dirichlet Allocation (or variants thereof, e.g. SentLDA).  Various Python modules can make this seemingly complicated Bayesian task easy to implement, see <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, <code class="docutils literal notranslate"><span class="pre">gensim</span></code>, or <code class="docutils literal notranslate"><span class="pre">lda</span></code> for more.</p>
+<p>Now, returning to the point about business jargon.  Consider the word ‘restate’.  This is a word that sends shivers of fear down the spines of accountants.  Restating earnings is not a good thing.  Yet, what words are related to this one, according to DataMuse?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restate_words</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.datamuse.com/words?ml=restate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">restate_words</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;word&#39;: &#39;reiterate&#39;, &#39;score&#39;: 85359, &#39;tags&#39;: [&#39;syn&#39;, &#39;v&#39;]}, {&#39;word&#39;: &#39;retell&#39;, &#39;score&#39;: 80375, &#39;tags&#39;: [&#39;syn&#39;, &#39;v&#39;]}, {&#39;word&#39;: &#39;repeat&#39;, &#39;score&#39;: 78485, &#39;tags&#39;: [&#39;syn&#39;, &#39;v&#39;]}, {&#39;word&#39;: &#39;iterate&#39;, &#39;score&#39;: 77694, &#39;tags&#39;: [&#39;syn&#39;, &#39;v&#39;]}, {&#39;word&#39;: &#39;ingeminate&#39;, &#39;score&#39;: 74015, &#39;tags&#39;: [&#39;syn&#39;, &#39;v&#39;]}, {&#39;word&#39;: &#39;reaffirm&#39;, &#39;score&#39;: 63993, &#39;tags&#39;: [&#39;v&#39;]}, {&#39;word&#39;: &#39;reconfirm&#39;, &#39;score&#39;: 63054, &#39;tags&#39;: [&#39;v&#39;]}, {&#39;word&#39;: &#39;affirm&#39;, &#39;score&#39;: 62752, &#39;tags&#39;: [&#39;v&#39;]}, {&#39;word&#39;: &#39;realign&#39;, &#39;score&#39;: 62542, &#39;tags&#39;: [&#39;v&#39;]}, {&#39;word&#39;: &#39;revise&#39;, &#39;score&#39;: 62412, &#39;tags&#39;: [&#39;v&#39;]}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of the top ten words related to the word ‘restate’, many are varients on the word ‘repeat’!  That is because, in normal English, the word ‘restate’ is often used to describe the act of repeating a previously made statement.  In business English, however, ‘restate’ generally has a much more negative connotation.</p>
+<p>We will revist this point when we get to the chapter on textual analysis.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Ch2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Ch1/hw.html" title="previous page">Homework Assignment</a>
+    <a class='right-next' id="next-link" href="using_apis.html" title="next page">Using APIs</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By James Nordlund<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,838 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loops and Lists &#8212; Finance Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dictionaries and DataFrames" href="dictionaries_and_dataframes.html" />
+    <link rel="prev" title="Basic Ingredients" href="basic_ingredients.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Finance Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Financial Modeling and Analytics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Preliminaries
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="basic_ingredients.html">
+   Basic Ingredients
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Loops and Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dictionaries_and_dataframes.html">
+   Dictionaries and DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/descriptives.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/simulation.html">
+   Simulating Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch0/loops_and_lists.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/financedatascience/financedatascience.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/financedatascience/financedatascience.github.io/issues/new?title=Issue%20on%20page%20%2FCh0/loops_and_lists.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/financedatascience/financedatascience.github.io/master?urlpath=tree/Ch0/loops_and_lists.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-and-lifetime-savings">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+   Loops and Lifetime Savings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   Lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-and-delayed-savings">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+   Loops and Delayed Savings
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="loops-and-lists">
+<h1>Loops and Lists<a class="headerlink" href="#loops-and-lists" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="for-loops-and-lifetime-savings">
+<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops and Lifetime Savings<a class="headerlink" href="#for-loops-and-lifetime-savings" title="Permalink to this headline">¶</a></h2>
+<p>Because Python is quick and easy (once you have a handle of it), it serves as a useful tool for playing out ideas.  For example, suppose that we want to visualize a savings decision:</p>
+<blockquote>
+<div><p>Once you begin contributing to a savings account, assume that you put away <span class="math notranslate nohighlight">\(x\)</span> dollars per year and expect an annual return of <span class="math notranslate nohighlight">\(r\)</span>.  How much money will you have saved in <span class="math notranslate nohighlight">\(55\)</span> years?</p>
+</div></blockquote>
+<p>Begin by defining the <em>variables</em> you need</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.06</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, <em>compound</em> the returns you get over the next <span class="math notranslate nohighlight">\(55\)</span> years.  Imagine that today is year 0.  At the end of year 0, you’ll have saved <span class="math notranslate nohighlight">\(x \times (1+r)\)</span>.  Then, after another, you’re year zero savings grow by another <span class="math notranslate nohighlight">\((1+r)\)</span>, and your year one savings (since you put away <span class="math notranslate nohighlight">\(x\)</span> more each year), also grows by <span class="math notranslate nohighlight">\((1+r)\)</span>.  The following table helps visualize the idea:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Value of Money Saved at Year 0</p></th>
+<th class="head"><p>Value of Money Saved at Year 1</p></th>
+<th class="head"><p>Value of Money Saved at Year 2</p></th>
+<th class="head"><p>Value of Money Saved at Year 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)^3\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Add up the values across each column to get the total savings at the <em>beginning</em> of a given year.  This sum is reported in the following table:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Total Savings (beginning of year)</p></th>
+<th class="head"><p>Total Savings (algebraically re-arranged)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><span style="color:blue"><span class="math notranslate nohighlight">\(x(1+r)+x\)</span></span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)+x\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><span style="color:red"><span class="math notranslate nohighlight">\(x(1+r)^2+x(1+r)+x\)</span></span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\Big[\)</span><span style="color:blue"><span class="math notranslate nohighlight">\(x(1+r)+x\)</span></span><span class="math notranslate nohighlight">\(\Big](1+r)+x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><span class="math notranslate nohighlight">\(x(1+r)^3+x(1+r)^2+x(1+r)+x\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\Big[\)</span><span style="color:red"><span class="math notranslate nohighlight">\(x(1+r)^2+x(1+r)+x\)</span></span><span class="math notranslate nohighlight">\(\Big](1+r)+x\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Comparing values across columns two and three of the above table, a convenient pattern emerges.  For instance, the value in year 2, column three equals <span class="math notranslate nohighlight">\(x\)</span> plus <span class="math notranslate nohighlight">\((1+r)\)</span> times the value in year 1, column two.</p>
+<p>If we want to calculate the value of your savings acount at the beginning of year <span class="math notranslate nohighlight">\(55\)</span>, we need to tell Python to compound returns for <span class="math notranslate nohighlight">\(55\)</span> years.  The really awful way to do this is to tell Python to calculate <span class="math notranslate nohighlight">\(x(1+r)^{55}+x(1+r)^{54}+x(1+r)^{53}+...+x(1+r)^2+x(1+r)+x\)</span>.  The programmer’s way to do this is to use the pattern we pointed out in the above table, and make use of a <em>for loop</em> that operates over a range of years.</p>
+<p>If we wanted to loop over years <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(3\)</span>, we could tell Python to use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate over a list of the numbers <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(3\)</span>.  A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop has four components to it:</p>
+<ul class="simple">
+<li><p>the word <code class="docutils literal notranslate"><span class="pre">for</span></code> : tells Python to execute a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p></li>
+<li><p>a variable name : this serves as a <em>loop index</em>.  You’ll see in a moment what this index does.  A common name used here is the letter <code class="docutils literal notranslate"><span class="pre">i</span></code></p></li>
+<li><p>the word <code class="docutils literal notranslate"><span class="pre">in</span></code> : tells Python that the loop index will be contained within ‘’something’’.</p></li>
+<li><p>a list : this is the ‘’something’’ that we loop over.  Every item in the list gets used once.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>What a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop does is tells Python to loop over the list specified (in this case, the list of numbers <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(4\)</span>).  For each item in that list, Python sets the loop index variable (in this case, we defined the index variable to be named <code class="docutils literal notranslate"><span class="pre">i</span></code>) equal to that value of the list and then executes every step within the for loop (all of the indented lines of code underneath the line <code class="docutils literal notranslate"><span class="pre">for</span></code>.  Here, our for loop only specifies one action: print out the value of the loop index.</p>
+<p>In our motivating example, we want Python to work over a long range of years.  In this case, years <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(55\)</span>.
+This would be tedious to type out explicitly into <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">...,</span> <span class="pre">54,</span> <span class="pre">55]</span></code>.  Python has a trick for this, but there’s one caveat to keep in mind.  As children, we learn to start counting with the number <span class="math notranslate nohighlight">\(1\)</span>.  Python, like most programming languages, starts counting with the number <span class="math notranslate nohighlight">\(0\)</span>.  Thus, the built-in function <code class="docutils literal notranslate"><span class="pre">range()</span></code> uses this starts-at-zero convention.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>As demonstrated above, <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> tells Python that the loop should iterate over numbers <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(4\)</span>.  Generally, we use <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> to obtain numbers <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(n-1\)</span> (<em>not</em> <span class="math notranslate nohighlight">\(0\)</span> through <span class="math notranslate nohighlight">\(n\)</span>).  Thus, we get <span class="math notranslate nohighlight">\(n\)</span> numbers out of <code class="docutils literal notranslate"><span class="pre">range(n)</span></code>.  If we want to iterate up through year <span class="math notranslate nohighlight">\(55\)</span>, we would therefore use the statement <code class="docutils literal notranslate"><span class="pre">range(56)</span></code>.</p>
+<p>To calculate the value of your savings after <span class="math notranslate nohighlight">\(55\)</span> years, we simply have to type out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">savings</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># initially, 0 dollars in savings account</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">56</span><span class="p">):</span>
+    <span class="n">savings</span> <span class="o">=</span> <span class="n">savings</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="c1"># each year, pre-existings savings grows by (1+r) and an additional x is added</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">savings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2094111.7408149564
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<p>A Python <code class="docutils literal notranslate"><span class="pre">list</span></code> holds a list of items in an ordered way.  For example, a list of favorite things might include</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_things1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;raindrops on roses&#39;</span><span class="p">,</span> <span class="s1">&#39;whiskers on kittens&#39;</span><span class="p">,</span> <span class="s1">&#39;bright copper kettles&#39;</span><span class="p">,</span> <span class="s1">&#39;warm woolen mittens&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>for Julie Andrews, or</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_things2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;breakfast at Tiffany&#39;s&quot;</span><span class="p">,</span> <span class="s1">&#39;bottles of bubbles&#39;</span><span class="p">,</span> <span class="s1">&#39;girls with tattoos who like getting in trouble&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>for Ariana Grande.</p>
+<p>When we say lists are ordered, it’s because we can enter <code class="docutils literal notranslate"><span class="pre">favorite_things1[0]</span></code> and get back <code class="docutils literal notranslate"><span class="pre">'raindrops</span> <span class="pre">on</span> <span class="pre">roses'</span></code> as Julie Andrew’s first favorite thing.  Likewise <code class="docutils literal notranslate"><span class="pre">favorite_things2[1]</span></code> tells us that <code class="docutils literal notranslate"><span class="pre">'bottles</span> <span class="pre">of</span> <span class="pre">bubbles'</span></code> is Ariana Grande’s second favorite thing.  Remember, Python starts counting at zero!</p>
+<p>Lists can hold whatever you want.  It could be strings (as shown above), numbers, or even other variables.  Consider a list of daily stock returns</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily_stock_returns</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Let’s input this into the following code block for use throughout this section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily_stock_returns</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want the stock return for day 0, we simply type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03
+</pre></div>
+</div>
+</div>
+</div>
+<p>and Python gives us back the value.  Now suppose that the five daily stock returns corresponded to a week of stock return data.  How do we convert this data into a weekly return?</p>
+<div class="math notranslate nohighlight">
+\[
+\text{weekly return} = (-1) + \Pi_{t=1}^5 (1 + \text{daily return}_t)
+\]</div>
+<p>In case the <span class="math notranslate nohighlight">\(\Pi\)</span> symbol is unfamiliar, it means multiply.  Just like <span class="math notranslate nohighlight">\(\sum_{i=1}^3 x_i\)</span> means <span class="math notranslate nohighlight">\(x_1 + x_2 + x_3\)</span>, the statement <span class="math notranslate nohighlight">\(\Pi_{i=1}^3 x_i\)</span> means <span class="math notranslate nohighlight">\(x_1 * x_2 * x_3\)</span>.</p>
+<p>The simple way to do this is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.019392050600000044
+</pre></div>
+</div>
+</div>
+</div>
+<p>That looks annoying to type out, doesn’t it?  Now imagine calculating an annual return from 252 days of daily trading data.  This would be prohbitively tedious.</p>
+<p>Luckily, we’re learning how to program, which means we can take advantage of useful things like <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to make our lives easier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_return</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">weekly_return</span> <span class="o">=</span> <span class="n">weekly_return</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">daily_stock_returns</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">weekly_return</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">weekly_return</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.019392050600000044
+</pre></div>
+</div>
+</div>
+</div>
+<p>Stop to think for a moment about why we set <code class="docutils literal notranslate"><span class="pre">weekly_return</span></code> equal to <span class="math notranslate nohighlight">\(1\)</span> before beginning the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<p>Most, if not all, variable types in Python have special functions that exist for those variable types.  For example, string variables contain text, and so these variables have <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> and <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> functions that can be used with them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_str</span> <span class="o">=</span> <span class="s1">&#39;Finance Data Science&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_str</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FINANCE DATA SCIENCE
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_str</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>finance data science
+</pre></div>
+</div>
+</div>
+</div>
+<p>For list variables, two important functions are <code class="docutils literal notranslate"><span class="pre">.append()</span></code> and <code class="docutils literal notranslate"><span class="pre">.pop()</span></code>.  These functions add and remove data from the list, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.append()</span></code> function takes as an argument the data that you want to append to a list, and then adds that data to the end of an existing list.  Note that, as with <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> or <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> for strings, here the function starts with a <code class="docutils literal notranslate"><span class="pre">.</span></code> and follows the variable name.  This is different than using a function like <code class="docutils literal notranslate"><span class="pre">print()</span></code> or, from earlier in this chapter, <code class="docutils literal notranslate"><span class="pre">wacc()</span></code>.  The difference exists because <code class="docutils literal notranslate"><span class="pre">.append()</span></code> is a function defined specifically for list variable types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">.pop()</span></code> removes data from a list, you don’t necessarily need to say <em>what</em> data gets deleted.  By default, if you do not supply an argument to <code class="docutils literal notranslate"><span class="pre">.pop()</span></code> Python will delete the last item from the list.  To specify an element to delete, select it based on that elements position in the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Python, <code class="docutils literal notranslate"><span class="pre">for</span></code> loops operate on lists of information.  For example, the command <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(5)</span></code> tells Python to operate on the list of numbers from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(4\)</span>.  Likewise, <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">['cat',</span> <span class="pre">'dog',</span> <span class="pre">'bird']</span></code> tells Python to operate on the list of strings ‘cat’, ‘dog’, and ‘bird’.  Notice, therfore, that the list of items we loop over does not have to use numbers!  For each element in the given list, Python applies certain commands to that item.  These commands are the lines of code that appear within a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop (the indented section of code that follows the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop operation is only a single line long, there is a special shortcut that we can use.  This shortcut is called <strong>list comprehension</strong>.  Consider the task of subtracting the risk free rate from the list of daily returns in order to compute an excess return.  For simplicity, assume the risk free rate is constant and equal to <span class="math notranslate nohighlight">\(0.01\)</span>.  One way of achieving this is with the following <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excess_returns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">excess_returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">daily_stock_returns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">excess_returns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.019999999999999997, 0.0, -0.03, 0.0, -0.02]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before showing off list comprehension, let’s stop and think about one potential issue with the above code.  In the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop above, we explicity refer to the number <span class="math notranslate nohighlight">\(5\)</span> when defining the range of the loop.  That’s a bad idea.  What if we add more stock return data to our list, and then re-run the above code?  In that scenario, the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop won’t execute as intended, since it will still only calculate excess returns for the first five days.</p>
+<p>A better way to loop over a list is to use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function (‘len’ stands for ‘length’, but Python is nice and only expects us to type out three characters instead of six).  The function <code class="docutils literal notranslate"><span class="pre">len()</span></code> can calculate the length of a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">daily_stock_returns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hence, we improve uppon our <code class="docutils literal notranslate"><span class="pre">for</span></code> loop above by removing the explicit reference to the number <span class="math notranslate nohighlight">\(5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excess_returns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">daily_stock_returns</span><span class="p">)</span> <span class="p">):</span>
+    <span class="n">excess_returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">daily_stock_returns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">excess_returns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.019999999999999997, 0.0, -0.03, 0.0, -0.02]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, the above code will work as expected, regardless of how many items are in the <code class="docutils literal notranslate"><span class="pre">daily_stock_returns</span></code> list.</p>
+<p>An alternative to using <code class="docutils literal notranslate"><span class="pre">len()</span></code> and referencing list elements by their index position (i.e. doing <code class="docutils literal notranslate"><span class="pre">daily_stock_returns[i]</span></code>) is to simply tell Python that we want to loop over <code class="docutils literal notranslate"><span class="pre">daily_stock_returns</span></code>.  Thus, rather than telling Python we want to loop over <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> or over <code class="docutils literal notranslate"><span class="pre">range(</span> <span class="pre">len(daily_stock_returns)</span> <span class="pre">)</span></code>, we can simply tell Python to loop over <code class="docutils literal notranslate"><span class="pre">daily_stock_returns</span></code> directly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">daily_stock_returns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03
+0.01
+-0.02
+0.01
+-0.01
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus, an alternative improvement to the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is to do the following.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excess_returns</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">daily_stock_returns</span><span class="p">:</span>
+    <span class="n">excess_returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">i</span> <span class="o">-</span> <span class="o">.</span><span class="mi">01</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">excess_returns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.019999999999999997, 0.0, -0.03, 0.0, -0.02]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you don’t need to use the list index position inside the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop (as is the case here), it’s better to loop over the list directly, rather than a list of numbers coresponding to the index positions.  The reason is that this form of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is the cleanest.  It requires the least amount of typing, and it is the easiest to read.</p>
+<p>Now that we’ve seen that we can loop over a list directly (rather than looping over index positions for the list), we can explain list comprehension.  List comprehension takes a simple <code class="docutils literal notranslate"><span class="pre">for</span></code> loop (with one line of code inside the loop) and converts the loop into a neater, shorter piece of code.  Consider the following example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">daily_stock_returns</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.03, 0.01, -0.02, 0.01, -0.01]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The statment is wrapped up in square brackets, indicating a <code class="docutils literal notranslate"><span class="pre">list</span></code> variable.  Within these square brackets, we tell Python to add to this list the value <code class="docutils literal notranslate"><span class="pre">i</span></code>, where we define <code class="docutils literal notranslate"><span class="pre">i</span></code> as any element of <code class="docutils literal notranslate"><span class="pre">daily_stock_returns</span></code>.</p>
+<p>Rather than adding simply <code class="docutils literal notranslate"><span class="pre">i</span></code> to this new list, we could add some function of <code class="docutils literal notranslate"><span class="pre">i</span></code>.  For instance, we can substract the risk free rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="o">.</span><span class="mi">01</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">daily_stock_returns</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.019999999999999997, 0.0, -0.03, 0.0, -0.02]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hence, the easiest way to compute excess returns is with the simple, one-line statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">excess_returns</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="o">.</span><span class="mi">01</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">daily_stock_returns</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">excess_returns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.019999999999999997, 0.0, -0.03, 0.0, -0.02]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because list comprehension is just a shortcut to writting out a simple <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, a person could use Python perfectly fine without knowing how to use list comprehension.  However, it’s a popular shortcut, so we highlight it here because it will be used throught this text.</p>
+</div>
+<div class="section" id="for-loops-and-delayed-savings">
+<h2><code class="docutils literal notranslate"><span class="pre">for</span></code> Loops and Delayed Savings<a class="headerlink" href="#for-loops-and-delayed-savings" title="Permalink to this headline">¶</a></h2>
+<p>Consider a slightly modified version of the lifetime savings problem provided above.</p>
+<blockquote>
+<div><p>Once you begin contributing to a savings account, assume that you put away <span class="math notranslate nohighlight">\(x\)</span> dollars per year and expect an annual return of <span class="math notranslate nohighlight">\(r\)</span>.  How valuable is it to start saving now as opposed to <span class="math notranslate nohighlight">\(10\)</span> years from now?</p>
+</div></blockquote>
+<p>Again, begin by defining some values for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.06</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, define two list variables.  These will store the value of savings accounts over time.  In the previous example, we updated the value for the savings account each year.  Here, we record the value of the account at each point in time.  This is useful because we can then plot the data and explore this delayed savings problem more carefully.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save_now</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>    <span class="c1"># value of saving account when savings starts immediately</span>
+<span class="n">save_later</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># value of saving account when savings starts 10 years from now</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These list variables store one value each (the value <span class="math notranslate nohighlight">\(x\)</span> and the value <span class="math notranslate nohighlight">\(0\)</span>), which corresponds to the value of the savings account at the beginning of year <span class="math notranslate nohighlight">\(0\)</span>.  Under the “save-now” plan, <span class="math notranslate nohighlight">\(x\)</span> is put away immediately.  Under the “save-later” plan, <span class="math notranslate nohighlight">\(x\)</span> is not put away until year 10.</p>
+<p>Now, what we want to do is think about what happens each year.  In the first scenario (begin saving immediately), the savings account grows by <code class="docutils literal notranslate"><span class="pre">(1+r)</span></code> each year, plus an additional <code class="docutils literal notranslate"><span class="pre">x</span></code> that gets added in.  In the second scenario, the savings account only begins growing after year 10, and contributions only begin in year 10.  Before that, nothing happens.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> logic, a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, and the <code class="docutils literal notranslate"><span class="pre">.append()</span></code> function for lists, we can evaluate these two savings plans.</p>
+<p>We’ll begin with the “save-now” savings plan, since this is similar to the problem from the beginning of the chapter.  A difference implemented here is that we call the <code class="docutils literal notranslate"><span class="pre">.append()</span></code> function to add values to the <code class="docutils literal notranslate"><span class="pre">save_now</span></code> list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">56</span><span class="p">):</span> <span class="c1"># loop over i from 1 to 55</span>
+    <span class="n">account_value_last_year</span> <span class="o">=</span> <span class="n">save_now</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># e.g. for i = 1 (year 1), loop up account value at i = 0 (year 0)</span>
+    <span class="n">account_value_next_year</span> <span class="o">=</span> <span class="n">account_value_last_year</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="n">save_now</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">account_value_next_year</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At the beginning of the chapter, we defined a variable <code class="docutils literal notranslate"><span class="pre">savings</span></code>, and updated that variable’s value each loop iteration.  Here, the list variable <code class="docutils literal notranslate"><span class="pre">save_now</span></code> keeps track of <em>each</em> of the savings account values (that is, the value of the account at year 0, at year 1, …, at year 55).  This is useful for plotting a figure, which we’ll do at the end of the chapter.</p>
+<p>Next, we modify the above <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to work on the “save-later” plan.  The important distinction here is that, for the first ten years (list index values <span class="math notranslate nohighlight">\(0-9\)</span>, since Python starts counting at <span class="math notranslate nohighlight">\(0\)</span>), no money is put in to the savings account.  Thus, we set the first ten values of the <code class="docutils literal notranslate"><span class="pre">save_later</span></code> list equal to <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">56</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="n">save_later</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">save_later</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">save_later</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotting will be covered in greater detail in a later chapter, so don’t worry about understanding the meaning of the following code block.  The important takeaway is what’s presented in the figure it creates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">56</span><span class="p">),</span> <span class="n">save_now</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Now&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">56</span><span class="p">),</span> <span class="n">save_later</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Later&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/loops_and_lists_52_0.png" src="../_images/loops_and_lists_52_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Ch0"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="basic_ingredients.html" title="previous page">Basic Ingredients</a>
+    <a class='right-next' id="next-link" href="dictionaries_and_dataframes.html" title="next page">Dictionaries and DataFrames</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By James Nordlund<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

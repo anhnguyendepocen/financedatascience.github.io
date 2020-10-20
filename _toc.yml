@@ -1,0 +1,28 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+# Edit files as necessary, add to TOC as show below
+# Build (from ~) with:
+#	jupyter-book build financedatascience.github.io
+# The conda environment is provided as `environment.yml`. This environment is used for all testing by Github Actions and can be setup by:
+# 	conda env create -f environment.yml
+# 	conda activate fds
+# To kill the environment
+#	conda deactivate
+#	conda remove --name fds --all
+
+
+- file: intro
+
+- part: Python Preliminaries
+  chapters:
+  - file: Ch0/basic_ingredients
+  - file: Ch0/loops_and_lists
+  - file: Ch0/dictionaries_and_dataframes
+  - file: Ch0/hw
+
+- part: Statistics
+  chapters:
+  - file: Ch1/descriptives
+  - file: Ch1/simulation
+  - file: Ch1/regression
+  - file: Ch1/hw

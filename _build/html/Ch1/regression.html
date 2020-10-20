@@ -1,0 +1,1343 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Regression &#8212; Finance Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Homework Assignment" href="hw.html" />
+    <link rel="prev" title="Simulating Data" href="simulation.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Finance Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Financial Modeling and Analytics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Preliminaries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/basic_ingredients.html">
+   Basic Ingredients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/loops_and_lists.html">
+   Loops and Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/dictionaries_and_dataframes.html">
+   Dictionaries and DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="descriptives.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="simulation.html">
+   Simulating Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch1/regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/financedatascience/financedatascience.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/financedatascience/financedatascience.github.io/issues/new?title=Issue%20on%20page%20%2FCh1/regression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/financedatascience/financedatascience.github.io/master?urlpath=tree/Ch1/regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   Linear Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outliers">
+   Outliers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intercepts-and-multiple-regressors">
+   Intercepts and Multiple Regressors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looking-beyond-ols">
+   Looking Beyond OLS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceteris-paribus">
+   Ceteris Paribus
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-equity-beta">
+   Application: Equity
+   <span class="math notranslate nohighlight">
+    \(\beta\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="regression">
+<h1>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="linear-regression">
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of regression is to fit a line.  This line is used to interpret some sort of relationship between one or more “x” variables and a “y” variable.  For example:</p>
+<div class="math notranslate nohighlight">
+\[
+y = \alpha + \beta x
+\]</div>
+<p>describes a straight line with intercept <span class="math notranslate nohighlight">\(\alpha\)</span> and slope <span class="math notranslate nohighlight">\(\beta\)</span>.  The variable <code class="docutils literal notranslate"><span class="pre">x</span></code> is referred to as the <em>regressor</em> in this model.  Models can have multiple regressors.</p>
+<p>We can generate some data that draws such a line.  In this example, take <span class="math notranslate nohighlight">\(\alpha=4\)</span> and <span class="math notranslate nohighlight">\(\beta=0.5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">line</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">line</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">line</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<span class="n">line</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>6.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-10</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-7</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-7</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> plot function <code class="docutils literal notranslate"><span class="pre">lineplot</span></code>(), we can visualize this line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;y&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_3_1.png" src="../_images/regression_3_1.png" />
+</div>
+</div>
+<p>No surprises here, we get a straight line.  The slope is one-half, and the intercept is 4.</p>
+<p>In the real world, relationships between <span class="math notranslate nohighlight">\(x\)</span>’s and <span class="math notranslate nohighlight">\(y\)</span>’s are usually complicated.  That is, there is no line that perfectly describes the connection between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.  Our goal is to find the best possible approximation of a relationship.  For instance, change the above equation to</p>
+<div class="math notranslate nohighlight">
+\[
+y = \alpha + \beta x + u
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> is some random, un-observed phenomenon that makes any pair of values <span class="math notranslate nohighlight">\((x,y)\)</span> partially unpredictable.  Consider the following simulated dataset, where <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x\)</span> have a known relationship (we know <span class="math notranslate nohighlight">\(\alpha=4\)</span> and <span class="math notranslate nohighlight">\(\beta=0.5\)</span>) with some error thrown in to the mix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;y&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_5_1.png" src="../_images/regression_5_1.png" />
+</div>
+</div>
+<p>In this example, the random error component <span class="math notranslate nohighlight">\(u\)</span> makes it so that <span class="math notranslate nohighlight">\(y\)</span> is no longer perfectly described by <span class="math notranslate nohighlight">\(x\)</span> and the parameters <span class="math notranslate nohighlight">\(\alpha,\beta\)</span>.</p>
+<p>When performing analytics, we’ll be given data.  Suppose that data looks like what’s described in <code class="docutils literal notranslate"><span class="pre">df</span></code>.  So, for example, we can see that the first few and last few rows look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="mf">3.764052</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           x         y
+0   3.764052  6.823602
+1   2.400157  4.526199
+2   2.978738  4.854126
+3   4.240893  6.605145
+4   3.867558  5.347217
+..       ...       ...
+95  2.706573  5.267513
+96  2.010500  5.391145
+97  3.785870  6.304687
+98  2.126912  6.145074
+99  2.401989  5.869259
+
+[100 rows x 2 columns]
+5.882026
+</pre></div>
+</div>
+</div>
+</div>
+<p>When all we have is the data, the values of <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are unknown to us.  In this case, our mission is to use linear regression so that we have the best possible linear fit between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Such a “line of best fit” is shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff1f1db6590&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_9_1.png" src="../_images/regression_9_1.png" />
+</div>
+</div>
+<p>This line is solved, by <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, using regression.  But <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> only computes the regression fit for the purposes of making a plot.  It doesn’t tell you what the <em>beta coefficient</em>, <span class="math notranslate nohighlight">\(\beta\)</span>, is estimated to be.  Nor does it report the estimated intercept <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>When parameters like <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are estimated, we usually put “hats” on them to denote that it’s an estimated value.  Thus, the estimated relationship is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{y} = \hat{\alpha} + \hat{\beta} x
+\]</div>
+<p>which tells us that, using the estimated values for <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, one would estimate the value for <span class="math notranslate nohighlight">\(y\)</span> to be <span class="math notranslate nohighlight">\(\hat{y}\)</span>, given the value <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>There are many commands that can be used to generate this linear regression fit, and those will be discussed in a little bit.</p>
+</div>
+<div class="section" id="outliers">
+<h2>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h2>
+<p>Let’s consider the effect of an outlier on the sample, and in so doing give relevancy to earlier parts of the chapter.</p>
+<p>Let’s hard-code a data error in the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> variable <code class="docutils literal notranslate"><span class="pre">df</span></code> by using the <code class="docutils literal notranslate"><span class="pre">.loc</span></code> function to change the <code class="docutils literal notranslate"><span class="pre">y</span></code> value for one of the rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What we’ve done in the above line of code is increase the <code class="docutils literal notranslate"><span class="pre">y</span></code> value of the first observation by a factor of 10.  This is a reasonable error to consider, using real (non-simulated) data, someone could very well accidentally hit the zero key when entering in rows of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> data by hand.</p>
+<p>First, let’s look at the boxplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  FutureWarning
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;y&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_13_2.png" src="../_images/regression_13_2.png" />
+</div>
+</div>
+<p>The outlier we’ve entered stands out clearly.  We can verify that the outlier we’re seeing is in fact the first row we modified by typing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x      3.764052
+y    100.000000
+Name: 0, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>and noticing that the <code class="docutils literal notranslate"><span class="pre">y</span></code> value there is indeed the point we’re seeing as an outlier in the data.</p>
+<p>What happens if we don’t correct for this issue when we perform an analytics task like linear regression?  Note that the scatter plot likewise shows a big problem due to the outlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;y&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_17_1.png" src="../_images/regression_17_1.png" />
+</div>
+</div>
+<p>How can we expect Python to find a line of best fit through that scatter plot, when there is such an egregious outlier in the plot?</p>
+<p>Look what happens in the regression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff1f0c32110&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_19_1.png" src="../_images/regression_19_1.png" />
+</div>
+</div>
+<p>While it may be hard to see the change, note that the line of best fit now reaches above all of the y values on the right hand side of the scatter plot, and dips below them on the left hand side.  In the earlier regression, this did not happen.  What’s occurred here is the line of best fit now has a much steeper slope than it did before.  This is because the outlier point, which is towards the right side of the <code class="docutils literal notranslate"><span class="pre">x</span></code> distribution and is significantly above the rest of the <code class="docutils literal notranslate"><span class="pre">y</span></code> data, skews the line of best fit to be much more positively sloping.</p>
+<p>We’ll discuss solutions to remove outliers on an ad hoc basis as we work through different case studies.  Here, we simply remove that troubly observation from the distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many commands that can be used to generate this linear regression fit, one such way is via the <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> <span class="c1"># sm.OLS(...).fit() returns as statsmodels variable type</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.875
+Model:                            OLS   Adj. R-squared (uncentered):              0.874
+Method:                 Least Squares   F-statistic:                              686.7
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):                    4.59e-46
+Time:                        11:03:07   Log-Likelihood:                         -198.94
+No. Observations:                  99   AIC:                                      399.9
+Df Residuals:                      98   BIC:                                      402.5
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x              2.1017      0.080     26.206      0.000       1.943       2.261
+==============================================================================
+Omnibus:                        0.465   Durbin-Watson:                   1.614
+Prob(Omnibus):                  0.792   Jarque-Bera (JB):                0.621
+Skew:                          -0.116   Prob(JB):                        0.733
+Kurtosis:                       2.690   Cond. No.                         1.00
+==============================================================================
+
+Notes:
+[1] R² is computed without centering (uncentered) since the model does not contain a constant.
+[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a lot of output here.  Note that about halfway down the table, the printout reports that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> has a coefficient value (denote in column “coef”) of <span class="math notranslate nohighlight">\(2.1\)</span>.  This would be the <span class="math notranslate nohighlight">\(\beta\)</span> coefficient, and thus <span class="math notranslate nohighlight">\(\hat{\beta}=2.1\)</span>.  But what about <span class="math notranslate nohighlight">\(\hat{\alpha}\)</span>?  There is no estimated intercept, because we did not tell <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to include one.</p>
+</div>
+<div class="section" id="intercepts-and-multiple-regressors">
+<h2>Intercepts and Multiple Regressors<a class="headerlink" href="#intercepts-and-multiple-regressors" title="Permalink to this headline">¶</a></h2>
+<p>To include an intercept term, we must tell <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> that the set of regressors includes a variable whose value is one, always.  Note that the equation <span class="math notranslate nohighlight">\(y = \alpha + \beta x + u\)</span> that we want to estimate is the same thing as <span class="math notranslate nohighlight">\(y = \alpha 1 + \beta x + u\)</span>.  Explicitly creating a variable that is always equal to one thus allows for an intercept to be included.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cons&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;cons&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.531
+Model:                            OLS   Adj. R-squared:                  0.526
+Method:                 Least Squares   F-statistic:                     109.7
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):           1.29e-17
+Time:                        11:03:07   Log-Likelihood:                -73.831
+No. Observations:                  99   AIC:                             151.7
+Df Residuals:                      97   BIC:                             156.9
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+cons           3.9434      0.118     33.431      0.000       3.709       4.177
+x              0.5433      0.052     10.472      0.000       0.440       0.646
+==============================================================================
+Omnibus:                        4.800   Durbin-Watson:                   1.945
+Prob(Omnibus):                  0.091   Jarque-Bera (JB):                2.945
+Skew:                           0.225   Prob(JB):                        0.229
+Kurtosis:                       2.284   Cond. No.                         6.01
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above output, the intercept (<code class="docutils literal notranslate"><span class="pre">cons</span></code>) is estimated to be 3.9434 and the <span class="math notranslate nohighlight">\(\beta\)</span> coefficient is estimated to be <span class="math notranslate nohighlight">\(0.5433\)</span>.  This is close to the true relationship that we constructed of <span class="math notranslate nohighlight">\(y = 4 + 0.5 x + u\)</span>.</p>
+<p>What function we use to estimate a relationship between <span class="math notranslate nohighlight">\(y\)</span> and the regressor(s) depends on the data that we have.  As practice using multiple x-variables, let’s simulate a dataset that is generated by the following equation</p>
+<div class="math notranslate nohighlight">
+\[
+y = 4 + 0.5 x + 3 x^2 + u
+\]</div>
+<p>The relationship between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x\)</span> in the above equation is said to be <em>nonlinear</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">])</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           x          y        x2
+0   1.764052  15.159244  3.111881
+1   0.400157   4.006576  0.160126
+2   0.978738   6.727911  0.957928
+3   2.240893  20.669952  5.021602
+4   1.867558  14.810536  3.487773
+..       ...        ...       ...
+95  0.706573   5.765250  0.499246
+96  0.010500   4.391476  0.000110
+97  1.785870  14.872688  3.189333
+98  0.126912   5.193394  0.016107
+99  0.401989   5.354045  0.161595
+
+[100 rows x 3 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that to square column <code class="docutils literal notranslate"><span class="pre">'x'</span></code> to produce <code class="docutils literal notranslate"><span class="pre">'x2'</span></code>, all we need to do is type <code class="docutils literal notranslate"><span class="pre">df2['x']</span> <span class="pre">**</span> <span class="pre">2</span></code> since <code class="docutils literal notranslate"><span class="pre">**</span></code> is the command for exponentiate.</p>
+<p>Next, plot a relationship between just <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>, assuming a linear fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff1eafee650&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_29_1.png" src="../_images/regression_29_1.png" />
+</div>
+</div>
+<p>The estimated straight line gets things horribly wrong!  The line is pretty far away from a lot of the actual data points.</p>
+<p>The scatter plot of the data above makes clear that the data demonstrates a non-linear relationship.</p>
+<p>What we ought do to is fit a line given by</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{y} = c + \hat{\beta}_1 x + \hat{\beta}_2 x^2
+\]</div>
+<p>where there are two beta coefficients.  One for <span class="math notranslate nohighlight">\(x\)</span>, and one for <span class="math notranslate nohighlight">\(x^2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;cons&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;cons&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.983
+Model:                            OLS   Adj. R-squared:                  0.983
+Method:                 Least Squares   F-statistic:                     2885.
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):           3.91e-87
+Time:                        11:03:07   Log-Likelihood:                -75.005
+No. Observations:                 100   AIC:                             156.0
+Df Residuals:                      97   BIC:                             163.8
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+cons           4.0714      0.066     61.584      0.000       3.940       4.203
+x              0.5615      0.052     10.829      0.000       0.459       0.664
+x2             2.9666      0.040     73.780      0.000       2.887       3.046
+==============================================================================
+Omnibus:                        7.876   Durbin-Watson:                   2.003
+Prob(Omnibus):                  0.019   Jarque-Bera (JB):                3.580
+Skew:                           0.188   Prob(JB):                        0.167
+Kurtosis:                       2.152   Cond. No.                         2.47
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">model2</span></code> stores a lot of data.  Beyond holding summary output for the performance of the regression (which we’ve accessed via the <code class="docutils literal notranslate"><span class="pre">model2.summary()</span></code> command), we can reference the estimated parameters directly via <code class="docutils literal notranslate"><span class="pre">.params</span></code>.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;cons&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.071350754098632
+0.5615154693913407
+2.9666242239334637
+</pre></div>
+</div>
+</div>
+</div>
+<p>As an aside, the fact that we’re using square brackets to reference items inside of <code class="docutils literal notranslate"><span class="pre">squared.params</span></code> is a clue that the <code class="docutils literal notranslate"><span class="pre">.params</span></code> component of the variable <code class="docutils literal notranslate"><span class="pre">squared</span></code> was built using a dictionary-like structure.</p>
+<p>One way to tell that the estimates of <code class="docutils literal notranslate"><span class="pre">squared</span></code> are better than the estimates of <code class="docutils literal notranslate"><span class="pre">straight</span></code> is to look at the <code class="docutils literal notranslate"><span class="pre">R-squared</span></code> value in the summary output.  This measure takes a value between 0 and 1, with a score of 1 indicating perfect fit.  For comparison purposes, consider the linear fit model below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">df2</span><span class="p">[[</span><span class="s1">&#39;cons&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.056
+Model:                            OLS   Adj. R-squared:                  0.046
+Method:                 Least Squares   F-statistic:                     5.767
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):             0.0182
+Time:                        11:03:07   Log-Likelihood:                -277.26
+No. Observations:                 100   AIC:                             558.5
+Df Residuals:                      98   BIC:                             563.7
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+cons           7.0734      0.392     18.054      0.000       6.296       7.851
+x              0.9318      0.388      2.401      0.018       0.162       1.702
+==============================================================================
+Omnibus:                       49.717   Durbin-Watson:                   1.848
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              128.463
+Skew:                           1.877   Prob(JB):                     1.27e-28
+Kurtosis:                       7.091   Cond. No.                         1.06
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The linear-fit model produced an R-squared of 0.056 while the quadratic-fit model yielded a R-squared of 0.983.</p>
+<p>Another informative way to jude a modeled relationship is by plotting the <strong>residuals</strong>.  The residuals are the “un-expected” part of the equation.  For example, in the linear-fit model, the residual is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{u} := y - \hat{y} = y - \hat{c} - \hat{\beta} x
+\]</div>
+<p>and in the quadratic-fit model the residual, <span class="math notranslate nohighlight">\(\hat{u}\)</span>, is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{u} := y - \hat{y} = y- \hat{c} - \hat{\beta}_1 x - \hat{\beta}_2 x^2
+\]</div>
+<p>Using the information in <code class="docutils literal notranslate"><span class="pre">.params</span></code>, we can calculate residuals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;resid_linear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">model1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;cons&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;resid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;cons&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;x2&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          x          y        x2  cons  resid_linear     resid
+0  1.764052  15.159244  3.111881     1      6.442047  0.865570
+1  0.400157   4.006576  0.160126     1     -3.439694 -0.764502
+2  0.978738   6.727911  0.957928     1     -1.257502 -0.734829
+3  2.240893  20.669952  5.021602     1     11.508419  0.443098
+4  1.867558  14.810536  3.487773     1      5.996890 -0.656389
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, plot the two sets of residuals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;resid_linear&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;resid_linear&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_39_1.png" src="../_images/regression_39_1.png" />
+</div>
+</div>
+<p>In the straight-line model, we can see that the errors have a noticeable pattern to them.  This is an indication that a more complicated function of <span class="math notranslate nohighlight">\(x\)</span> would be a better description for the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;resid&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;resid&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_41_1.png" src="../_images/regression_41_1.png" />
+</div>
+</div>
+<p>In comparison, the residuals from the squared model look more random.  Additionally, they’re substantially smaller on average, with almost all residuals having an absolute value less than one.  This indicates a much better fit than the straight-line model in which the residual values were often much larger.</p>
+</div>
+<div class="section" id="looking-beyond-ols">
+<h2>Looking Beyond OLS<a class="headerlink" href="#looking-beyond-ols" title="Permalink to this headline">¶</a></h2>
+<p>OLS works well when the <span class="math notranslate nohighlight">\(y\)</span> variable in our model is a linear combination of <span class="math notranslate nohighlight">\(x\)</span> variables.  Note that the relationship between <span class="math notranslate nohighlight">\(y\)</span> and a given regressor may be nonlinear, as in the case of <span class="math notranslate nohighlight">\(y\)</span> being a function of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x^2\)</span>.  However, while we may say that <span class="math notranslate nohighlight">\(y\)</span> is a nonlinear function of <span class="math notranslate nohighlight">\(x\)</span> in this case, the variable <span class="math notranslate nohighlight">\(y\)</span> is still a linear function of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x^2\)</span>.  To clarify:</p>
+<div class="math notranslate nohighlight">
+\[
+y = \alpha + \beta x + u
+\]</div>
+<p>is linear in <span class="math notranslate nohighlight">\(x\)</span>.  Likewise:</p>
+<div class="math notranslate nohighlight">
+\[
+y = \alpha + \beta_1 x + \beta_2 x^2 + u
+\]</div>
+<p>is linear in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x^2\)</span>.  In contrast, the function</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}
+y = \frac{e^{\alpha + \beta x + u}}{1 + e^{\alpha + \beta x + u}}
+$$ is *nonlinear*.  This last equation may look terrifyingly unnatural, but it's actually very useful.  Let's get a \\sense of what the equation looks like by plotting the function\end{aligned}\end{align} \]</div>
+<p>y = \frac{e^{x}}{1 + e^{x}}.
+$$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">curve</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">curve</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">curve</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">curve</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">curve</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">curve</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    x         y
+0   2  0.880797
+1   5  0.993307
+2 -10  0.000045
+3  -7  0.000911
+4  -7  0.000911
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;x&#39;, ylabel=&#39;y&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_44_2.png" src="../_images/regression_44_2.png" />
+</div>
+</div>
+<p>The function <span class="math notranslate nohighlight">\(y = e^{x}/(1+e^{x})\)</span> creates an S-curve with a lower bound of <span class="math notranslate nohighlight">\(0\)</span> and an upper bound of <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>These bounds are useful in analytics.  Often, our task is to estimate probabilities.  For instance, what is the likelihood that a borrower defaults on their mortgage, the likelihood that a credit card transaction is fraudulent, or the likelihood that a company will violate its capital expenditure covenant on an outstanding loan?  All of these questions require us to estimate a probability.  The above function is useful because it considers a situation in which the <span class="math notranslate nohighlight">\(y\)</span> variable is necessarily between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> (i.e. <span class="math notranslate nohighlight">\(0\%\)</span> probability and <span class="math notranslate nohighlight">\(100\%\)</span> probability).</p>
+<p>Suppose that we instead took the <code class="docutils literal notranslate"><span class="pre">curve</span></code> data above and tried to fit it with linear regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">curve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff1eae9b750&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_46_1.png" src="../_images/regression_46_1.png" />
+</div>
+</div>
+<p>Note that in the above plot, there are estimated “probabilities” (the <span class="math notranslate nohighlight">\(\hat{y}\)</span> values) that are either lower than <span class="math notranslate nohighlight">\(0\)</span> or higher than <span class="math notranslate nohighlight">\(1\)</span>.  This is statistically impossible.</p>
+<p>That fancy S-shaped function above is called the <em>inverse logit</em> function.  That is because <span class="math notranslate nohighlight">\(e^x / (1+e^x)\)</span> is the inverse of the <em>logit</em> function given by <span class="math notranslate nohighlight">\(log(x / (1-x)\)</span>.  Just like we can invert the equation <span class="math notranslate nohighlight">\(y = f(x)\)</span> to get <span class="math notranslate nohighlight">\(f^{-1}(y) = x\)</span>, the inverse of <span class="math notranslate nohighlight">\(y = e^x / (1+e^x)\)</span> is given by <span class="math notranslate nohighlight">\(log(y / (1-y)) = x\)</span>.</p>
+<p>When we model probabilities, the <span class="math notranslate nohighlight">\(y\)</span> variable will be either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span> for any observations.  Observations where the event occurred are recorded with <span class="math notranslate nohighlight">\(y=1\)</span>.  For instance, in a dataset about mortgage default, those borrowers who default on their mortgage would have <span class="math notranslate nohighlight">\(y=1\)</span> and everyone else would have <span class="math notranslate nohighlight">\(y=0\)</span>.</p>
+<p>Suppose that we estimate a model given by</p>
+<div class="math notranslate nohighlight">
+\[
+log\Big(\frac{y}{1-y}\Big) = \alpha + \beta x + u.
+\]</div>
+<p>Then, the estimated value <span class="math notranslate nohighlight">\(\hat{\alpha} + \hat{\beta}x\)</span> for a given observation would be <span class="math notranslate nohighlight">\(log(\hat{y}/(1-\hat{y}))\)</span>.  This is what we refer to as the <em>log odds ratio</em>.  The odds ratio is the probability that <span class="math notranslate nohighlight">\(y\)</span> equals <span class="math notranslate nohighlight">\(1\)</span> divided by the probability that <span class="math notranslate nohighlight">\(y\)</span> equals <span class="math notranslate nohighlight">\(0\)</span>; this is what <span class="math notranslate nohighlight">\(\hat{y}/(1-\hat{y})\)</span> tells us.  Ultimately, our estimate for <span class="math notranslate nohighlight">\(\hat{y}\)</span> then tells us the likelihood that the true value for <span class="math notranslate nohighlight">\(y\)</span> is equal to <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>This type of model is called a logistic regression model.  Let’s simulate some data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">df3</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">df3</span><span class="p">[</span><span class="s1">&#39;a+bx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<span class="n">df3</span><span class="p">[</span><span class="s1">&#39;y (almost)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;a+bx&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;a+bx&#39;</span><span class="p">]))</span> <span class="c1"># y (almost) is y if there was no random noise (no +u)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;y (almost)&#39;</span><span class="p">])</span> <span class="c1"># this adds u to the model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>a+bx</th>
+      <th>y (almost)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.764052</td>
+      <td>1</td>
+      <td>6.056209</td>
+      <td>0.997662</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.400157</td>
+      <td>0</td>
+      <td>0.600629</td>
+      <td>0.645800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.978738</td>
+      <td>1</td>
+      <td>2.914952</td>
+      <td>0.948581</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.240893</td>
+      <td>1</td>
+      <td>7.963573</td>
+      <td>0.999652</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.867558</td>
+      <td>1</td>
+      <td>6.470232</td>
+      <td>0.998454</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;cons&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">lpm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">df3</span><span class="p">[[</span><span class="s1">&#39;cons&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lpm</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.514
+Model:                            OLS   Adj. R-squared:                  0.514
+Method:                 Least Squares   F-statistic:                     1056.
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):          1.41e-158
+Time:                        11:03:09   Log-Likelihood:                -346.17
+No. Observations:                1000   AIC:                             696.3
+Df Residuals:                     998   BIC:                             706.2
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+cons          -0.2928      0.024    -12.187      0.000      -0.340      -0.246
+x              0.3564      0.011     32.493      0.000       0.335       0.378
+==============================================================================
+Omnibus:                      113.684   Durbin-Watson:                   2.045
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               37.844
+Skew:                           0.207   Prob(JB):                     6.06e-09
+Kurtosis:                       2.142   Cond. No.                         5.70
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">df3</span><span class="p">[[</span><span class="s1">&#39;cons&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">logit</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.292801
+         Iterations 8
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1000
+Model:                          Logit   Df Residuals:                      998
+Method:                           MLE   Df Model:                            1
+Date:                Tue, 20 Oct 2020   Pseudo R-squ.:                  0.5660
+Time:                        11:03:09   Log-Likelihood:                -292.80
+converged:                       True   LL-Null:                       -674.60
+Covariance Type:            nonrobust   LLR p-value:                4.432e-168
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+cons          -8.5975      0.567    -15.154      0.000      -9.709      -7.486
+x              3.8987      0.259     15.062      0.000       3.391       4.406
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ceteris-paribus">
+<h2>Ceteris Paribus<a class="headerlink" href="#ceteris-paribus" title="Permalink to this headline">¶</a></h2>
+<p>In your microeconomics class, you probably encountered the phrase <em>ceteris paribus</em>.  This is Latin for “all else equal”.  At the time, it may have seemed like economists were just trying to be fancy.  In actuality, the ceteris paribus assumption is key to all analytics.</p>
+<p>Take the laws of supply and demand as an example.  The law of demand says that when the price of an item, for instance a cell phone is higher, there will be a lower quantity demanded of that item.  But this is implicitly a certeris paribus statement.  The Palm Centro launched in 2007 at a price of <span class="math notranslate nohighlight">\(\$100\)</span>, and sold a million units in six months.  In contrast, the original iPhone launched at around the same time, at a release price of $499.  Does the higher price mean that fewer iPhones were sold compared to Palm Centros?  No.  The iPhone sold over a million units in under a third the time it took Palm to do so.  The reason why is the <em>quality</em> of the product being offered.</p>
+<p>Hence, consider the equation</p>
+<div class="math notranslate nohighlight">
+\[
+Q = c + \beta P + u
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\)</span> is the quantity of phones demanded and <span class="math notranslate nohighlight">\(P\)</span> is the price.  In economics, the ceteris paribus assumption means that we want to predict the quantity demanded of a good given the price of a good, holding <em>all else equal</em>.</p>
+<p>When it comes to real world data, the ceteris paribus assumption is violated.  When we observe the price for an item and the amount demanded of it, there are other things at play that make the estimation of the relationship between price and quantity difficult.</p>
+<p>Another way to think of this is to say that the error-term, <span class="math notranslate nohighlight">\(u\)</span>, in the equation is not a purely random phenomenon.  Rather, we might have something like</p>
+<div class="math notranslate nohighlight">
+\[
+Q = c + \beta P + u
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q = c + \beta P + (\gamma F + v)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\text{for }u := \gamma F + v
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(F\)</span> is some other feature (e.g. quality) of the phone we should that consider because it has an effect on how many people demand the phone.  The symbol <span class="math notranslate nohighlight">\(:=\)</span> implies a definitional equality (e.g. read “y := x+1” as “y is defined to equal x plus 1”).</p>
+<p>In this case, we say that the equation <span class="math notranslate nohighlight">\(Q = c + \beta P + u\)</span> has <strong>omitted variable bias</strong> because there is some omitted variable <span class="math notranslate nohighlight">\(F\)</span> that we do not include in the regression.  Strictly speaking, if there is any correlation between <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(F\)</span>, the estimated coefficient for <span class="math notranslate nohighlight">\(\beta\)</span> in a regression specification that omits <span class="math notranslate nohighlight">\(F\)</span> will be biased.  This means that the estimated value for <span class="math notranslate nohighlight">\(\beta\)</span> is guaranteed to be inaccurate, no matter how much data you may have.</p>
+<p>When we move on to case studies, this concept will be very important.</p>
+</div>
+<div class="section" id="application-equity-beta">
+<h2>Application: Equity <span class="math notranslate nohighlight">\(\beta\)</span><a class="headerlink" href="#application-equity-beta" title="Permalink to this headline">¶</a></h2>
+<p>When we use something like the <code class="docutils literal notranslate"><span class="pre">ols()</span></code> function above to calculate the slope of a straight line, the equation being modeled looks like:</p>
+<div class="math notranslate nohighlight">
+\[
+y = c + \beta x + u.
+\]</div>
+<p>Recall that the CAPM equation states:</p>
+<div class="math notranslate nohighlight">
+\[
+R_{i,t} = R_{f,t} + \beta_i (R_{m,t} - R_{f,t})
+\]</div>
+<p>which we can re-arrange to form:</p>
+<div class="math notranslate nohighlight">
+\[
+R_{i,t} - R_{f,t} = \beta_i (R_{m,t} - R_{f,t}).
+\]</div>
+<p>Note the similarities between this equation and the equation for a straight line.  We can use linear regression to fit the re-arranged CAPM equation by writing <span class="math notranslate nohighlight">\(y=R_{i,t}-R_{f,t}\)</span>, <span class="math notranslate nohighlight">\(c=0\)</span>, and <span class="math notranslate nohighlight">\(x=R_{m,t}-R_{f,t}\)</span>.  The CAPM formula tells us that the <em>excess</em> return on the stock, <span class="math notranslate nohighlight">\(y\)</span>, is equal to the stock’s <span class="math notranslate nohighlight">\(beta\)</span> times the market risk premium, <span class="math notranslate nohighlight">\(x\)</span>, on average.  There are random deviations from this average relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, and we model this with the error term <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<p>The CAPM equation is based on a theoretical relationship between a stock’s excess return and the market risk premium.  Per the equation derived by the theory, there is no intercept (equivalently: the intercept is zero).  This is why <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> does not automatically assume for you that there should be an intercept.  Some theoretical relationships between a <code class="docutils literal notranslate"><span class="pre">y</span></code> variable and <code class="docutils literal notranslate"><span class="pre">x</span></code> variable(s) imply that the intercept should be zero.</p>
+<p>Below, we will simulate stock return data according to CAPM.  Thus, no intercept will be included.  After, we will run a regression with an intercept variable added, and see that including an intercept in this case is actually quite harmless.</p>
+<p>Assume that the market return has an average annual return of <span class="math notranslate nohighlight">\(8\%\)</span> and annual volatility of <span class="math notranslate nohighlight">\(10\%\)</span>, the risk free rate is constant at <span class="math notranslate nohighlight">\(0.03\)</span>, and let <span class="math notranslate nohighlight">\(\beta=1.2\)</span>.  Simulate one year of returns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">annual_mean</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="n">annual_vol</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">annual_rf</span> <span class="o">=</span> <span class="mf">0.03</span>
+
+<span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">annual_mean</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">252</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">vol</span> <span class="o">=</span> <span class="n">annual_vol</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">annual_rf</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">252</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">mkt_ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">vol</span><span class="p">,</span> <span class="mi">252</span><span class="p">)</span>
+<span class="n">mrp</span> <span class="o">=</span> <span class="n">mkt_ret</span> <span class="o">-</span> <span class="n">rf</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="n">stk_ret</span> <span class="o">=</span> <span class="n">rf</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">mrp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">252</span><span class="p">)</span>
+<span class="n">excess_ret</span> <span class="o">=</span> <span class="n">stk_ret</span> <span class="o">-</span> <span class="n">rf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">stk_ret</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/mnt/software/anaconda3/envs/fds/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_55_2.png" src="../_images/regression_55_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">stk_ret</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">252</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/regression_56_1.png" src="../_images/regression_56_1.png" />
+</div>
+</div>
+<p>Now, estimate a linear model.  Do not add an intercept term.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">capm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">excess_ret</span><span class="p">,</span> <span class="n">mrp</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">capm</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.347
+Model:                            OLS   Adj. R-squared (uncentered):              0.344
+Method:                 Least Squares   F-statistic:                              133.3
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):                    5.14e-25
+Time:                        11:03:09   Log-Likelihood:                          803.52
+No. Observations:                 252   AIC:                                     -1605.
+Df Residuals:                     251   BIC:                                     -1602.
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1             1.1597      0.100     11.546      0.000       0.962       1.357
+==============================================================================
+Omnibus:                        0.790   Durbin-Watson:                   2.083
+Prob(Omnibus):                  0.674   Jarque-Bera (JB):                0.548
+Skew:                          -0.092   Prob(JB):                        0.760
+Kurtosis:                       3.135   Cond. No.                         1.00
+==============================================================================
+
+Notes:
+[1] R² is computed without centering (uncentered) since the model does not contain a constant.
+[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now repeat the estimation, but include an intercept term.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cons</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">252</span><span class="p">)]</span>
+
+<span class="n">capm_int</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">excess_ret</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span> <span class="p">(</span><span class="n">cons</span><span class="p">,</span> <span class="n">mrp</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">capm_int</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.350
+Model:                            OLS   Adj. R-squared:                  0.348
+Method:                 Least Squares   F-statistic:                     134.7
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):           3.34e-25
+Time:                        11:03:09   Log-Likelihood:                 804.25
+No. Observations:                 252   AIC:                            -1604.
+Df Residuals:                     250   BIC:                            -1597.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.0008      0.001     -1.198      0.232      -0.002       0.000
+x1             1.1671      0.101     11.608      0.000       0.969       1.365
+==============================================================================
+Omnibus:                        0.801   Durbin-Watson:                   2.095
+Prob(Omnibus):                  0.670   Jarque-Bera (JB):                0.555
+Skew:                          -0.092   Prob(JB):                        0.758
+Kurtosis:                       3.139   Cond. No.                         160.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that, because the true intercept is actually zero, Python ends up estimating an intercept that is in fact very close to zero.</p>
+<p>Hence, we should always include an intercept when running a regression model.  If an intercept is irrelevant (i.e. close to zero), then let Python estimate it.  Do not exclude an intercept under the assumption that it should be irrelevant, because you may be wrong.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Ch1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="simulation.html" title="previous page">Simulating Data</a>
+    <a class='right-next' id="next-link" href="hw.html" title="next page">Homework Assignment</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By James Nordlund<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,14 @@
+name: fds
+channels:
+  - default
+dependencies:
+  - python=3.7
+  - sphinx=2.4.4
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - pip:
+    - jupyter-book

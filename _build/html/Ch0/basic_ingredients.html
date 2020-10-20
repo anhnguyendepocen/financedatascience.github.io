@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic Ingredients &#8212; Finance Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Loops and Lists" href="loops_and_lists.html" />
+    <link rel="prev" title="Financial Modeling and Analytics" href="../intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Finance Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Financial Modeling and Analytics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Preliminaries
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basic Ingredients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="loops_and_lists.html">
+   Loops and Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dictionaries_and_dataframes.html">
+   Dictionaries and DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/descriptives.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/simulation.html">
+   Simulating Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch0/basic_ingredients.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/financedatascience/financedatascience.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/financedatascience/financedatascience.github.io/issues/new?title=Issue%20on%20page%20%2FCh0/basic_ingredients.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/financedatascience/financedatascience.github.io/master?urlpath=tree/Ch0/basic_ingredients.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-and-data">
+   Variables and Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests-of-in-equality">
+   Tests of (In)Equality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditionals">
+   Conditionals
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="basic-ingredients">
+<h1>Basic Ingredients<a class="headerlink" href="#basic-ingredients" title="Permalink to this headline">¶</a></h1>
+<p>Python is one of the most popular, general-purpose programming languages in the world.</p>
+<p>It is powerful, flexible, and <em>easy to learn</em>.</p>
+<div class="section" id="variables-and-data">
+<h2>Variables and Data<a class="headerlink" href="#variables-and-data" title="Permalink to this headline">¶</a></h2>
+<p>Variables store information.  Below, variable <code class="docutils literal notranslate"><span class="pre">a</span></code> is defined to store the number 5.  Next, variable <code class="docutils literal notranslate"><span class="pre">b</span></code> is defined to store 5 (the value of <code class="docutils literal notranslate"><span class="pre">a</span></code>) plus 2, which is 7.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variable names must start with a letter, and can contain letters, numbers, and underscores.  In general, variables should be named in a descriptive manner.  That is, if you have a variable that contains a firm’s cost of capital as its information, it is better to name this something like <code class="docutils literal notranslate"><span class="pre">cost_of_capital</span></code> or <code class="docutils literal notranslate"><span class="pre">costOfCapital</span></code> rather than a non-descriptive name like <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>Note that you can use <code class="docutils literal notranslate"><span class="pre">#</span></code> to add comments to your code.</p>
+<p>Python will ignore everything on a line following a <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">7</span> <span class="c1"># + 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are a handful of basic variable types.</p>
+<p>Note that the character <code class="docutils literal notranslate"><span class="pre">#</span></code> begins a <strong>comment</strong>.  Python ignores the <code class="docutils literal notranslate"><span class="pre">#</span></code> character and everything that follows it.  Use this to take notes about what’s happening in the code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>        <span class="c1"># a is an integer (there is no decimal point)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.5</span>      <span class="c1"># floating point number (in general, don&#39;t worry about integer vs. floating point)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="kc">False</span>    <span class="c1"># c is a Boolean</span>
+<span class="n">d</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span> <span class="c1"># d is a string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Programming is useful because variables can store <em>lots</em> of information (more than just a single number or word!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># e is a list</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;word 1&#39;</span><span class="p">:</span><span class="s1">&#39;definition 1&#39;</span><span class="p">,</span> <span class="s1">&#39;word 2&#39;</span><span class="p">:</span><span class="s1">&#39;definition 2&#39;</span><span class="p">}</span> <span class="c1"># f is a dictionary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, variable <code class="docutils literal notranslate"><span class="pre">e</span></code> stores information about multiple numbers.  Lists can store lots of things, not just numbers.  For example, the list <code class="docutils literal notranslate"><span class="pre">fang</span> <span class="pre">=</span> <span class="pre">['FB',</span> <span class="pre">'AMZN',</span> <span class="pre">'NFLX',</span> <span class="pre">'GOOG']</span></code> stores a list of string variables, where each string corresponds to one of the ticker symbols for the FANG stocks.</p>
+<p>Above, variable <code class="docutils literal notranslate"><span class="pre">f</span></code> stores information about words and their meanings.  Like lists, dictionaries can store lots of things.  For example <code class="docutils literal notranslate"><span class="pre">FB</span> <span class="pre">=</span> <span class="pre">{'3/23/20':148.10,</span> <span class="pre">'3/24/20':160.98,</span> <span class="pre">'3/25/20':156.21,</span> <span class="pre">'3/26/20':163.34,</span> <span class="pre">'3/27/20':156.79}</span></code> records daily stock price information for Facebook, Inc. for the week of March 23, 2020.  Dictionary variables hold <em>keys</em> (e.g. a word to look up) and <em>values</em> (e.g. the definition of the word).  Here, the key is a string that records the date, and the value is a floating point number that corresponds to the stock price.</p>
+<p>We’ll return to lists and dictionaries later, including a discussion of how to modify/update data inside the list/dictionary, as well as instructions for accessing single items within a list/dictionary.  For now, we’ll work with variables that hold single pieces of information for the sake of simplicity.  But note that variables can store lots of data simultaneously, and that’s what makes programming truly useful for financial practioners.</p>
+<p>Amongst the above variable types, integer and floating point numbers are a nice place to start because there are a number of straight forward operations that can be applied to these variables.  For instance, as shown above, we can add numbers together with <code class="docutils literal notranslate"><span class="pre">+</span></code>.  Subtraction, multiplication, and division work in similar ways:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Operator</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2+3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Subtraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5-3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2*3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6/3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Beyond these four basic arithmatic operations, there are two extra operations to know:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Operator</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Exponentiation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3**3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Modulus</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4%3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The former, exponentiation, is key to many financial applications (e.g. time value of money).  Do not mistake <code class="docutils literal notranslate"><span class="pre">**</span></code> and <code class="docutils literal notranslate"><span class="pre">^</span></code>!  While <code class="docutils literal notranslate"><span class="pre">^</span></code> may look more familiar as an exponentiation symbol, it has an entirely different meaning in Python.</p>
+<p>These arithmatic operators perform basic tasks with stored data.  For instance, if we have variables corresponding to debt and equity, we can calculate leverage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">debt</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">equity</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="n">leverage</span> <span class="o">=</span> <span class="p">(</span><span class="n">debt</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">debt</span><span class="o">+</span><span class="n">equity</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">leverage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, if we needed to know the holding period return of an investment of <span class="math notranslate nohighlight">\(\$500\)</span> that earns <span class="math notranslate nohighlight">\(2\%\)</span> per year for <span class="math notranslate nohighlight">\(3\)</span> years, we could use these Python operators to find that out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">500</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">+.</span><span class="mi">02</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>  <span class="o">/</span> <span class="mi">500</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06120800000000015
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tests-of-in-equality">
+<h2>Tests of (In)Equality<a class="headerlink" href="#tests-of-in-equality" title="Permalink to this headline">¶</a></h2>
+<p>We can compare the relative value of two number variables.  For example, define two variables, <code class="docutils literal notranslate"><span class="pre">debt_longterm</span></code> and <code class="docutils literal notranslate"><span class="pre">debt_shortterm</span></code>, that store information about a company’s long term and short term debt, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">debt_longterm</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">debt_shortterm</span> <span class="o">=</span> <span class="mi">2000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check for whether long term debt exceeds short term debt with the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> character.  This test returns a <em>boolean</em> value (True or False).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">debt_longterm</span> <span class="o">&gt;</span> <span class="n">debt_shortterm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you might expect, we can also use <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">=</span></code> characters for other tests.  For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">debt_longterm</span> <span class="o">&lt;=</span> <span class="n">debt_shortterm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have to be careful with tests of equality, however.  Remember, we used <code class="docutils literal notranslate"><span class="pre">=</span></code> to tell Python what information a variable should store.  For example, <code class="docutils literal notranslate"><span class="pre">x=7</span></code> tells Python that the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> should store the number seven.  Thus, if we want to test for whether the information stored in <code class="docutils literal notranslate"><span class="pre">x</span></code> equals seven, we type</p>
+<div class="highlight-Python3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">==</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p>with a double <code class="docutils literal notranslate"><span class="pre">==</span></code> to denote that we’re testing for equality.</p>
+<p>Related to the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">=</span></code> characters is the word <code class="docutils literal notranslate"><span class="pre">in</span></code>.  In Python, the word <code class="docutils literal notranslate"><span class="pre">in</span></code> has a special meaning, so you can’t define a variable with the name <code class="docutils literal notranslate"><span class="pre">in</span></code>.  The word <code class="docutils literal notranslate"><span class="pre">in</span></code> is used to check for whether a value appears in a list.  Use of the word <code class="docutils literal notranslate"><span class="pre">in</span></code>, like the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> or other tests of (in)equality, results in Python returning a Boolean value.</p>
+<p>As an example, define <code class="docutils literal notranslate"><span class="pre">tic</span></code> to be one stock ticker of interest and <code class="docutils literal notranslate"><span class="pre">tickers</span></code> to be a list of stock tickers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tic</span> <span class="o">=</span> <span class="s1">&#39;AAPL&#39;</span>
+<span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AMD&#39;</span><span class="p">,</span><span class="s1">&#39;NVDA&#39;</span><span class="p">,</span><span class="s1">&#39;INTC&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check for whether the value stored in <code class="docutils literal notranslate"><span class="pre">tic</span></code> appears in the list of items held in <code class="docutils literal notranslate"><span class="pre">tickers</span></code> by using the word <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tic</span> <span class="ow">in</span> <span class="n">tickers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we can test for equality, we can use this information to test an important point: strings and numbers (either integers or floating points) are different.  That is, if we type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>we get the value <code class="docutils literal notranslate"><span class="pre">True</span></code>, whereas if we type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>we get the value <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Variables are one of the two fundamental components of any programming language.  Now that we know what variables are (they things that store data) and how to work with them, we can introduce the the other fundamental component of programming: functions.</p>
+<p>Functions give us the ability to write some code that we reference over and over again without having to retype things.  Ultimately, programming is about making your life easier!  We work hard (say, for one semester of our lives) learning how to give a computer instructions (using Python) and then, for the rest of our lives, everything else is easier and more convenient because we can instruct a computer to do lots of the heavy lifting for us.  <u>In financial terms, we spend a little time now for a bunch of time saved later, and thus the net present value of learning to program is positive.</u></p>
+<p>Functions have three parts:</p>
+<ol class="simple">
+<li><p>Function defintion (name the function and determine what <em>inputs</em> we need, if any)</p></li>
+<li><p>Operations (execute some code)</p></li>
+<li><p>Return statement (define what want we want to get back from the function)</p></li>
+</ol>
+<p>As an example, let’s compute the weighted average cost of capital, defined as</p>
+<div class="math notranslate nohighlight">
+\[
+r_{\text{WACC}} = \frac{E}{V}\times r_E + \frac{D}{V}\times r_D\times (1-\tau_C).
+\]</div>
+<p>That is, the weighted average cost of capital for a firm is the proportion of equity in the firm times the equity cost of capital plus the proportion of debt in the firm times the debt cost of capital.  We adjust the latter for the tax shield of debt using the corporate tax rate <span class="math notranslate nohighlight">\(\tau_C\)</span>.</p>
+<p><strong>Part 1: definition</strong></p>
+<p>A function defintion begins with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> followed by the function name and then a colon.</p>
+<p>Functions can use information passed to it via input arguments (inputs are named in the parentheses, which appear before the colon).</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wacc</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">rE</span><span class="p">,</span> <span class="n">rD</span><span class="p">,</span> <span class="n">tC</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>Note that in this function definition, we expect <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> as inputs.  We do not require <code class="docutils literal notranslate"><span class="pre">V</span></code> to be an input to the function, since <code class="docutils literal notranslate"><span class="pre">V</span></code> is easily calculated as <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">E</span> <span class="pre">+</span> <span class="pre">D</span></code>.  This calculation is included in part 2.</p>
+<p><strong>Part 2: operations</strong></p>
+<p>Functions run the code written inside of the function (operations) when the function is <em>called</em>.  A function call occurs when a programmer ‘’uses’’ the function, and we’ll see an example of this shortly.</p>
+<p><u>NOTE</u>: indentation keeps track of whether code is ‘’inside’’ a function</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wacc</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">rE</span><span class="p">,</span> <span class="n">rD</span><span class="p">,</span> <span class="n">tC</span><span class="p">):</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">E</span> <span class="o">+</span> <span class="n">D</span>
+    <span class="n">cost_of_capital</span> <span class="o">=</span> <span class="n">E</span> <span class="o">/</span> <span class="n">V</span> <span class="o">*</span> <span class="n">rE</span> <span class="o">+</span> <span class="n">D</span> <span class="o">/</span> <span class="n">V</span> <span class="o">*</span> <span class="n">rD</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tC</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Part 3: return value</strong></p>
+<p>Functions can be many, many lines of code.</p>
+<p>The last line, starting with the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> specifies what value comes back when you run the function.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wacc</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">rE</span><span class="p">,</span> <span class="n">rD</span><span class="p">,</span> <span class="n">tC</span><span class="p">):</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">E</span> <span class="o">+</span> <span class="n">D</span>
+    <span class="n">cost_of_capital</span> <span class="o">=</span> <span class="n">E</span> <span class="o">/</span> <span class="n">V</span> <span class="o">*</span> <span class="n">rE</span> <span class="o">+</span> <span class="n">D</span> <span class="o">/</span> <span class="n">V</span> <span class="o">*</span> <span class="n">rD</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tC</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cost_of_capital</span>
+</pre></div>
+</div>
+<p>When a function is created, Python becomes ‘’aware’’ of the function, but nothing else happens at that time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wacc</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">rE</span><span class="p">,</span> <span class="n">rD</span><span class="p">,</span> <span class="n">tC</span><span class="p">):</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">E</span> <span class="o">+</span> <span class="n">D</span>
+    <span class="n">cost_of_capital</span> <span class="o">=</span> <span class="n">E</span> <span class="o">/</span> <span class="n">V</span> <span class="o">*</span> <span class="n">rE</span> <span class="o">+</span> <span class="n">D</span> <span class="o">/</span> <span class="n">V</span> <span class="o">*</span> <span class="n">rD</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">tC</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cost_of_capital</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For functions to be used, they need to be <em>called</em>.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wacc</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="o">.</span><span class="mi">08</span><span class="p">,</span><span class="o">.</span><span class="mi">04</span><span class="p">,</span><span class="o">.</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06753846153846155
+</pre></div>
+</div>
+</div>
+</div>
+<p>tells Python to compute the weighted average cost of capital for a firm with an equity value of <span class="math notranslate nohighlight">\(100\)</span>, a debt value of <span class="math notranslate nohighlight">\(30\)</span>, an equity cost of capital of <span class="math notranslate nohighlight">\(8\%\)</span>, a debt cost of capital of <span class="math notranslate nohighlight">\(4\%\)</span>, and a tax rate of <span class="math notranslate nohighlight">\(35\%\)</span>.  The returned value of <code class="docutils literal notranslate"><span class="pre">0.0675</span></code> tells us that the firm’s WACC is <span class="math notranslate nohighlight">\(6.75\%\)</span>.</p>
+<p>In the above example, Python <em>assumes</em> the first number (<span class="math notranslate nohighlight">\(100\)</span>) should be given to the input variable <code class="docutils literal notranslate"><span class="pre">E</span></code>, it <em>assumes</em> that the second number (<span class="math notranslate nohighlight">\(30\)</span>) should be given to the input variable <code class="docutils literal notranslate"><span class="pre">D</span></code>, etc.  This is bad practice!  It’s much better to use the input variable names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wacc</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">D</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">rE</span><span class="o">=.</span><span class="mi">08</span><span class="p">,</span><span class="n">rD</span><span class="o">=.</span><span class="mi">04</span><span class="p">,</span><span class="n">tC</span><span class="o">=.</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06753846153846155
+</pre></div>
+</div>
+</div>
+</div>
+<p>because then the ordering of how you enter the inputs doesn’t matter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wacc</span><span class="p">(</span><span class="n">rE</span><span class="o">=.</span><span class="mi">08</span><span class="p">,</span><span class="n">rD</span><span class="o">=.</span><span class="mi">04</span><span class="p">,</span><span class="n">tC</span><span class="o">=.</span><span class="mi">35</span><span class="p">,</span><span class="n">E</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">D</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06753846153846155
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is useful to keep in mind because, realistically, you won’t remember the default ordering of inputs (the order of input variables in the <code class="docutils literal notranslate"><span class="pre">def</span></code> line of the function definition).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> line is important because variables that live inside a function are stuck inside that function.</p>
+<p>E.g. the below will throw an error because <code class="docutils literal notranslate"><span class="pre">cost_of_capital</span></code> is only <em>accessible</em> inside the function <code class="docutils literal notranslate"><span class="pre">wacc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cost_of_capital</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">967605</span><span class="n">eceae6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cost_of_capital</span>
+
+<span class="ne">NameError</span>: name &#39;cost_of_capital&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conditionals">
+<h2>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this headline">¶</a></h2>
+<p>Conditionals specify that a certain bit of code should run <em>conditional</em> on a statement being true or false.</p>
+<p>Like user-written functions, the block of code that runs conditionally is indented.</p>
+<p>In the example below, we define information about a firm’s current assets and current liabilities.  Then we calculate the current ratio to see if the firm has enough current assets to cover its current liabilities.  The code incorporates a rule of thumb and tells the user that a current ratio above <span class="math notranslate nohighlight">\(1.5\)</span> is okay, a current ratio below <span class="math notranslate nohighlight">\(1.5\)</span> but above <span class="math notranslate nohighlight">\(1\)</span> is risky, and a current ratio below <span class="math notranslate nohighlight">\(1\)</span> is dangerous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_assets</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">current_liabilities</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">current_ratio</span> <span class="o">=</span> <span class="n">current_assets</span> <span class="o">/</span> <span class="n">current_liabilities</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">current_ratio</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">current_ratio</span> <span class="o">&gt;</span> <span class="mf">1.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Firm is okay!&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">current_ratio</span> <span class="o">&lt;=</span> <span class="mf">1.5</span> <span class="ow">and</span> <span class="n">current_ratio</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Firm looks risky&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Danger!  Firm needs some cash&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6666666666666667
+Firm is okay!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, several calls were made to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.  The function <code class="docutils literal notranslate"><span class="pre">print()</span></code> is a built-in function that tells Python to print out the input to the user.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Ch0"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Financial Modeling and Analytics</a>
+    <a class='right-next' id="next-link" href="loops_and_lists.html" title="next page">Loops and Lists</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By James Nordlund<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,3041 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pandas_datareader &#8212; Finance Data Science</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Using APIs" href="using_apis.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Finance Data Science</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Financial Modeling and Analytics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python Preliminaries
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/basic_ingredients.html">
+   Basic Ingredients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/loops_and_lists.html">
+   Loops and Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/dictionaries_and_dataframes.html">
+   Dictionaries and DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch0/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/descriptives.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/simulation.html">
+   Simulating Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/regression.html">
+   Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch1/hw.html">
+   Homework Assignment
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_to_apis.html">
+   Intro to APIS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="using_apis.html">
+   Using APIs
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   pandas_datareader
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch2/pandas_datareader.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/financedatascience/financedatascience.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/financedatascience/financedatascience.github.io/issues/new?title=Issue%20on%20page%20%2FCh2/pandas_datareader.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/financedatascience/financedatascience.github.io/master?urlpath=tree/Ch2/pandas_datareader.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-pandas-datareader-module">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas_datareader
+    </span>
+   </code>
+   Module
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas-datareader">
+<h1>pandas_datareader<a class="headerlink" href="#pandas-datareader" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-pandas-datareader-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">pandas_datareader</span></code> Module<a class="headerlink" href="#the-pandas-datareader-module" title="Permalink to this headline">¶</a></h2>
+<p>In previous parts of this chapter, we discussed APIs.  We use APIs to interface with data on a web server and bring that data in to Python.</p>
+<p>In this section, we make use of the <code class="docutils literal notranslate"><span class="pre">pandas_datareader</span></code> module.  This is a module that provides a set of API features to Python in such a way that the data is directly loaded in to a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame format.  The <code class="docutils literal notranslate"><span class="pre">pandas_datareader</span></code> module actually used to be part of the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module, but it was spun off in to its own separate module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s start with an example provided in the module’s <a class="reference external" href="https://pandas-datareader.readthedocs.io/en/latest/remote_data.html#fred">documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+<span class="n">gdp</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">gdp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GDP</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-01</th>
+      <td>12761.337</td>
+    </tr>
+    <tr>
+      <th>2005-04-01</th>
+      <td>12910.022</td>
+    </tr>
+    <tr>
+      <th>2005-07-01</th>
+      <td>13142.873</td>
+    </tr>
+    <tr>
+      <th>2005-10-01</th>
+      <td>13332.316</td>
+    </tr>
+    <tr>
+      <th>2006-01-01</th>
+      <td>13603.933</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The above yields a data series of GDP values, listed at a quarterly frequency.  Note that the <code class="docutils literal notranslate"><span class="pre">DATE</span></code> listed in the above DataFrame is not a column of data, it contains the labels for the rows.  Remember, label names are bold-faced, so the name <code class="docutils literal notranslate"><span class="pre">2010-01-01</span></code> being in bold tells you that this is a row label, just like the name <code class="docutils literal notranslate"><span class="pre">GDP</span></code> in bold tells you that this is a column label.</p>
+<p>Above, we accessed data from the <code class="docutils literal notranslate"><span class="pre">'fred'</span></code> data provider.  The FRED (Federal Reserve Economic Data) is an important provider of macroeconomic data, like measurement of gross domestic product.</p>
+<p>Note that we can collect multiple data series from FRED simultaneously by requesting a list of data series in the first argument to the <code class="docutils literal notranslate"><span class="pre">DataReader()</span></code> function, as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inflation</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span> <span class="s1">&#39;CPILFESL&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">inflation</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CPIAUCSL</th>
+      <th>CPILFESL</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-01</th>
+      <td>191.6</td>
+      <td>199.0</td>
+    </tr>
+    <tr>
+      <th>2005-02-01</th>
+      <td>192.4</td>
+      <td>199.4</td>
+    </tr>
+    <tr>
+      <th>2005-03-01</th>
+      <td>193.1</td>
+      <td>200.1</td>
+    </tr>
+    <tr>
+      <th>2005-04-01</th>
+      <td>193.7</td>
+      <td>200.2</td>
+    </tr>
+    <tr>
+      <th>2005-05-01</th>
+      <td>193.6</td>
+      <td>200.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We see two columns of data printed above, corresponding to the two data series names that were requested.  But how are these series names chosen?  The name <code class="docutils literal notranslate"><span class="pre">'CPIAUCSL'</span></code>, for instance, is not an intuitive name for “inflation.”  And if <code class="docutils literal notranslate"><span class="pre">'CPIAUCSL'</span></code> and <code class="docutils literal notranslate"><span class="pre">'CPILFESL'</span></code> are both data about inflation, what makes them different?</p>
+<p>If you search for a data series name on the <a class="reference external" href="https://fred.stlouisfed.org/">FRED website</a>, it will take you to the data series.  Thus, we can easily find that:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fred.stlouisfed.org/series/CPIAUCSL">CPIAUCSL</a> is the consumer price index for urban consumers</p></li>
+<li><p><a class="reference external" href="https://fred.stlouisfed.org/series/CPILFESL">CPILFESL</a> is the consumer price index for urban consumers, excluding food and energy costs</p></li>
+</ul>
+<p>Data on FRED are organized by <a class="reference external" href="https://fred.stlouisfed.org/categories">category</a>,and <a class="reference external" href="https://fred.stlouisfed.org/categories/9">consumer price indexes</a> are one such category.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alcohol</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;CUSR0000SAF116&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">alcohol</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CUSR0000SAF116</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-01</th>
+      <td>194.6</td>
+    </tr>
+    <tr>
+      <th>2005-02-01</th>
+      <td>195.0</td>
+    </tr>
+    <tr>
+      <th>2005-03-01</th>
+      <td>195.2</td>
+    </tr>
+    <tr>
+      <th>2005-04-01</th>
+      <td>195.5</td>
+    </tr>
+    <tr>
+      <th>2005-05-01</th>
+      <td>195.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Price indexes are interesting, but let’s focus on some financial time series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DGS1MO&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS3MO&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS6MO&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS1&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS2&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS5&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS7&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS10&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS30&#39;</span><span class="p">]</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">data_list</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-03</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+    </tr>
+    <tr>
+      <th>2005-01-04</th>
+      <td>2.05</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.72</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.91</td>
+    </tr>
+    <tr>
+      <th>2005-01-05</th>
+      <td>2.04</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.83</td>
+      <td>3.22</td>
+      <td>3.73</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.88</td>
+    </tr>
+    <tr>
+      <th>2005-01-06</th>
+      <td>2.04</td>
+      <td>2.31</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.18</td>
+      <td>3.71</td>
+      <td>4.01</td>
+      <td>4.29</td>
+      <td>4.89</td>
+    </tr>
+    <tr>
+      <th>2005-01-07</th>
+      <td>2.03</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.73</td>
+      <td>4.03</td>
+      <td>4.29</td>
+      <td>4.88</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The data returned provides the term structure of interest rates.  Interest rates on treasuries of varying maturities are collected.</p>
+<p>It’s time to treat these row labels a bit more formally.</p>
+<p>Recall that column labels can be accessed like so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;DGS1MO&#39;, &#39;DGS3MO&#39;, &#39;DGS6MO&#39;, &#39;DGS1&#39;, &#39;DGS2&#39;, &#39;DGS5&#39;, &#39;DGS7&#39;, &#39;DGS10&#39;,
+       &#39;DGS30&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The columns of a DataFrame are referred to as, quite intuitively, <em>columns</em>!</p>
+<p>The row labels are a bit different, they are typically referred to as the <em>index</em> of the DataFrame.  The list of row labels is thus accessible via:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2005-01-03&#39;, &#39;2005-01-04&#39;, &#39;2005-01-05&#39;, &#39;2005-01-06&#39;,
+               &#39;2005-01-07&#39;, &#39;2005-01-10&#39;, &#39;2005-01-11&#39;, &#39;2005-01-12&#39;,
+               &#39;2005-01-13&#39;, &#39;2005-01-14&#39;,
+               ...
+               &#39;2019-12-18&#39;, &#39;2019-12-19&#39;, &#39;2019-12-20&#39;, &#39;2019-12-23&#39;,
+               &#39;2019-12-24&#39;, &#39;2019-12-25&#39;, &#39;2019-12-26&#39;, &#39;2019-12-27&#39;,
+               &#39;2019-12-30&#39;, &#39;2019-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;DATE&#39;, length=3912, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is at this point that use of <code class="docutils literal notranslate"><span class="pre">.loc</span></code> becomes interesting and useful, rather than simply an academic point about the structure of DataFrames.  For instance, to look up the term structure of interest rates on June 7, 2019, we would enter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-06-07&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DGS1MO    2.30
+DGS3MO    2.28
+DGS6MO    2.15
+DGS1      1.97
+DGS2      1.85
+DGS5      1.85
+DGS7      1.97
+DGS10     2.09
+DGS30     2.57
+Name: 2019-06-07 00:00:00, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s helpful to have an index because it lets us label the data in two dimensions at once.  The column label will tell us the name of the data series (e.g. <code class="docutils literal notranslate"><span class="pre">'DGS1'</span></code>, which is the yield on a set of 1 year constant maturity U.S. treasuries) and the row <em>index</em> will tell us the time at which that data is observed.</p>
+<p>In earlier parts of this book, the row index was boring.  Unless explicitly given a list of row labels to use for the index, Python will assign the row index to be the row number.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.764052</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.400157</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.978738</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.240893</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.867558</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that the data returned from <code class="docutils literal notranslate"><span class="pre">pandas_datareader</span></code> is indexed in a very convenient way.  Along with using <code class="docutils literal notranslate"><span class="pre">ts.loc['2019-06-07']</span></code>, we can get slices of the data like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2019-01-04&#39;</span><span class="p">:</span><span class="s1">&#39;2019-01-09&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-01-04</th>
+      <td>2.40</td>
+      <td>2.42</td>
+      <td>2.51</td>
+      <td>2.57</td>
+      <td>2.50</td>
+      <td>2.49</td>
+      <td>2.56</td>
+      <td>2.67</td>
+      <td>2.98</td>
+    </tr>
+    <tr>
+      <th>2019-01-07</th>
+      <td>2.42</td>
+      <td>2.45</td>
+      <td>2.54</td>
+      <td>2.58</td>
+      <td>2.53</td>
+      <td>2.53</td>
+      <td>2.60</td>
+      <td>2.70</td>
+      <td>2.99</td>
+    </tr>
+    <tr>
+      <th>2019-01-08</th>
+      <td>2.40</td>
+      <td>2.46</td>
+      <td>2.54</td>
+      <td>2.60</td>
+      <td>2.58</td>
+      <td>2.58</td>
+      <td>2.63</td>
+      <td>2.73</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <th>2019-01-09</th>
+      <td>2.40</td>
+      <td>2.45</td>
+      <td>2.52</td>
+      <td>2.59</td>
+      <td>2.56</td>
+      <td>2.57</td>
+      <td>2.64</td>
+      <td>2.74</td>
+      <td>3.03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are two important things to notice about index slicing here (<em>slicing</em> is another term for getting a subset of data).</p>
+<p>First, the slice ends <em>at</em> the endpoint, not just before it.  This breaks from normal Python convention.  For instance, 0:10 will give you the numbers 0 through 9, not the numbers 0 through 10.  When slicing by index, the last row label you include is the last row you get.  As another example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.400157</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.978738</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Second, the data exists for Jan. 4 and Jan. 7-9, but not for Jan. 5-6.  Why?  Because Jan. 5-6 was a weekend.</p>
+<p>We can shift date indexes around quite easily via <code class="docutils literal notranslate"><span class="pre">.shift()</span></code>.  This will come in handy in many applications.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-03</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+    </tr>
+    <tr>
+      <th>2005-01-04</th>
+      <td>2.05</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.72</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.91</td>
+    </tr>
+    <tr>
+      <th>2005-01-05</th>
+      <td>2.04</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.83</td>
+      <td>3.22</td>
+      <td>3.73</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.88</td>
+    </tr>
+    <tr>
+      <th>2005-01-06</th>
+      <td>2.04</td>
+      <td>2.31</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.18</td>
+      <td>3.71</td>
+      <td>4.01</td>
+      <td>4.29</td>
+      <td>4.89</td>
+    </tr>
+    <tr>
+      <th>2005-01-07</th>
+      <td>2.03</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.73</td>
+      <td>4.03</td>
+      <td>4.29</td>
+      <td>4.88</td>
+    </tr>
+    <tr>
+      <th>2005-01-10</th>
+      <td>2.07</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>2.86</td>
+      <td>3.23</td>
+      <td>3.75</td>
+      <td>4.03</td>
+      <td>4.29</td>
+      <td>4.86</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-03</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005-01-04</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+    </tr>
+    <tr>
+      <th>2005-01-05</th>
+      <td>2.05</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.72</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.91</td>
+    </tr>
+    <tr>
+      <th>2005-01-06</th>
+      <td>2.04</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.83</td>
+      <td>3.22</td>
+      <td>3.73</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.88</td>
+    </tr>
+    <tr>
+      <th>2005-01-07</th>
+      <td>2.04</td>
+      <td>2.31</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.18</td>
+      <td>3.71</td>
+      <td>4.01</td>
+      <td>4.29</td>
+      <td>4.89</td>
+    </tr>
+    <tr>
+      <th>2005-01-10</th>
+      <td>2.03</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.73</td>
+      <td>4.03</td>
+      <td>4.29</td>
+      <td>4.88</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that the shifting moves data based on the dates included in the dataset.  For instance, the interest rates on Friday, if we shift the data forward by one day, are moved to Monday and not to Saturday.</p>
+<p>Shifting is incredibly useful for calculating things like growth rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="p">[</span><span class="s1">&#39;GDS30 growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="p">[</span><span class="s1">&#39;DGS30&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">ts</span><span class="p">[</span><span class="s1">&#39;DGS30&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-03</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005-01-04</th>
+      <td>2.05</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.72</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.91</td>
+      <td>0.012371</td>
+    </tr>
+    <tr>
+      <th>2005-01-05</th>
+      <td>2.04</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.83</td>
+      <td>3.22</td>
+      <td>3.73</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.88</td>
+      <td>-0.006110</td>
+    </tr>
+    <tr>
+      <th>2005-01-06</th>
+      <td>2.04</td>
+      <td>2.31</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.18</td>
+      <td>3.71</td>
+      <td>4.01</td>
+      <td>4.29</td>
+      <td>4.89</td>
+      <td>0.002049</td>
+    </tr>
+    <tr>
+      <th>2005-01-07</th>
+      <td>2.03</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.73</td>
+      <td>4.03</td>
+      <td>4.29</td>
+      <td>4.88</td>
+      <td>-0.002045</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Beyond useful slicing and shifting tricks, using indexed data like this (i.e. data where the rows have an explicit label and not simply the default row label equals row number format) is great for plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="p">[</span><span class="s1">&#39;DGS30&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_28_1.png" src="../_images/pandas_datareader_28_1.png" />
+</div>
+</div>
+<p>Look at the x-axis!  It’s automatically labeled for us.  Thanks, Python.</p>
+<p>Let’s now plot the Treasury yield curve for ‘2016-06-07’.  Recall that we can access the data like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2016-06-07&#39;</span><span class="p">,</span> <span class="n">data_list</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DGS1MO    0.20
+DGS3MO    0.28
+DGS6MO    0.43
+DGS1      0.59
+DGS2      0.78
+DGS5      1.23
+DGS7      1.51
+DGS10     1.72
+DGS30     2.54
+Name: 2016-06-07 00:00:00, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The maturity times for these securities are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">360</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then plot the yield curve using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mat</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2016-06-07&#39;</span><span class="p">,</span> <span class="n">data_list</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;2016-06-07 00:00:00&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_34_1.png" src="../_images/pandas_datareader_34_1.png" />
+</div>
+</div>
+<p>The yield curve does not always have this shape to it, though what’s shown above is the “standard” appearance.  Typically, the yield curve is upward-sloping and somewhat curvy.</p>
+<p>In contrast, the yield curve may sometimes invert.  That is, it will have places in the curve that are downward-sloping.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mat</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2007-01-02&#39;</span><span class="p">,</span> <span class="n">data_list</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;2007-01-02 00:00:00&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_36_1.png" src="../_images/pandas_datareader_36_1.png" />
+</div>
+</div>
+<p>The usual place where we look for this is in the 10-year Treasury minus the 2-year Treasury.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="p">[</span><span class="s1">&#39;Slope&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="p">[</span><span class="s1">&#39;DGS10&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ts</span><span class="p">[</span><span class="s1">&#39;DGS2&#39;</span><span class="p">]</span>
+<span class="n">ts</span><span class="p">[</span><span class="s1">&#39;Slope&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_38_1.png" src="../_images/pandas_datareader_38_1.png" />
+</div>
+</div>
+<p>When this slope (the difference between the 10 year and 2 year) is negative, we refer to this as a yield curve inversion.</p>
+<p>These inversion events are reasonably good predictors of recessions.</p>
+<p>Let’s test this idea.  Begin by getting a series of data about when recessions occur from <a class="reference external" href="https://fred.stlouisfed.org/series/JHDUSRGDPBR">FRED</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recession</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;JHDUSRGDPBR&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">recession</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>JHDUSRGDPBR</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-01-01</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005-04-01</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005-07-01</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005-10-01</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2006-01-01</th>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The data series <code class="docutils literal notranslate"><span class="pre">'JHDUSRGDPBR'</span></code> is a list of recessions.  The value will be 1 when there is a recession and 0 when there is not a recession.</p>
+<p>Let’s now merge the recession data.  Note that the recession data is observed once per quarter.  We should convert all data to a quarterly frequency before preceeding.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsq</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
+
+<span class="n">tsq</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>2005Q1</th>
+      <td>2.05</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.72</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.91</td>
+      <td>0.012371</td>
+      <td>1.09</td>
+    </tr>
+    <tr>
+      <th>2005Q1</th>
+      <td>2.04</td>
+      <td>2.33</td>
+      <td>2.63</td>
+      <td>2.83</td>
+      <td>3.22</td>
+      <td>3.73</td>
+      <td>4.02</td>
+      <td>4.29</td>
+      <td>4.88</td>
+      <td>-0.006110</td>
+      <td>1.07</td>
+    </tr>
+    <tr>
+      <th>2005Q1</th>
+      <td>2.04</td>
+      <td>2.31</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.18</td>
+      <td>3.71</td>
+      <td>4.01</td>
+      <td>4.29</td>
+      <td>4.89</td>
+      <td>0.002049</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <th>2005Q1</th>
+      <td>2.03</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.82</td>
+      <td>3.20</td>
+      <td>3.73</td>
+      <td>4.03</td>
+      <td>4.29</td>
+      <td>4.88</td>
+      <td>-0.002045</td>
+      <td>1.09</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recessionq</span> <span class="o">=</span> <span class="n">recession</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
+
+<span class="n">recessionq</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>JHDUSRGDPBR</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that the term structure data has multiple observations for a given quarter.  Suppose that we only want to use the first observation.  That is, at the start of a quarter, what does the term structure look like?  We can remove duplicate index values to get rid of the observations that do not correspond to the first observation for each quarter using <code class="docutils literal notranslate"><span class="pre">.duplicated()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsq</span> <span class="o">=</span> <span class="n">tsq</span><span class="p">[</span><span class="o">~</span><span class="n">tsq</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span> <span class="c1"># &lt;index&gt;.duplicated(keep=&#39;first&#39;) marks all duplicates except the first as True</span>
+
+<span class="n">tsq</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The observation at <code class="docutils literal notranslate"><span class="pre">'2006Q1'</span></code> is troubling.  Why is there missing data there?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2005-12-29&#39;</span><span class="p">:</span><span class="s1">&#39;2006-01-03&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-12-29</th>
+      <td>3.67</td>
+      <td>4.01</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>4.38</td>
+      <td>4.33</td>
+      <td>4.34</td>
+      <td>4.37</td>
+      <td>4.49</td>
+      <td>-0.004435</td>
+      <td>-0.01</td>
+    </tr>
+    <tr>
+      <th>2005-12-30</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <th>2006-01-02</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2006-01-03</th>
+      <td>4.05</td>
+      <td>4.16</td>
+      <td>4.40</td>
+      <td>4.38</td>
+      <td>4.34</td>
+      <td>4.30</td>
+      <td>4.32</td>
+      <td>4.37</td>
+      <td>4.52</td>
+      <td>NaN</td>
+      <td>0.03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It’s unclear why the first observation for the first quarter of 2006 is missing, but we don’t want to lose that quarter of data simply because one date has missing data.  Let’s fill in the data.  The method we’ll use to do so is <code class="docutils literal notranslate"><span class="pre">'ffill'</span></code>, which stands for forward fill.  Pandas will take the most recent data (in this case <code class="docutils literal notranslate"><span class="pre">'2005-12-30'</span></code>) and use that to fill in the missing data (at <code class="docutils literal notranslate"><span class="pre">'2006-01-02'</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2005-12-29&#39;</span><span class="p">:</span><span class="s1">&#39;2006-01-03&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-12-29</th>
+      <td>3.67</td>
+      <td>4.01</td>
+      <td>4.34</td>
+      <td>4.35</td>
+      <td>4.38</td>
+      <td>4.33</td>
+      <td>4.34</td>
+      <td>4.37</td>
+      <td>4.49</td>
+      <td>-0.004435</td>
+      <td>-0.01</td>
+    </tr>
+    <tr>
+      <th>2005-12-30</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <th>2006-01-02</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+    </tr>
+    <tr>
+      <th>2006-01-03</th>
+      <td>4.05</td>
+      <td>4.16</td>
+      <td>4.40</td>
+      <td>4.38</td>
+      <td>4.34</td>
+      <td>4.30</td>
+      <td>4.32</td>
+      <td>4.37</td>
+      <td>4.52</td>
+      <td>0.004454</td>
+      <td>0.03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>With that data problem fixed, we can go back to the quarterly data.  Let’s re-make the quarterly information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsq</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
+<span class="n">tsq</span> <span class="o">=</span> <span class="n">tsq</span><span class="p">[</span><span class="o">~</span><span class="n">tsq</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span> <span class="c1"># &lt;index&gt;.duplicated(keep=&#39;first&#39;) marks all duplicates except the first as True&#39;</span>
+
+<span class="n">tsq</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we can merge the two quarterly DataFrames.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_recession</span> <span class="o">=</span> <span class="n">tsq</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">recessionq</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;DATE&#39;</span><span class="p">)</span>
+
+<span class="n">ts_recession</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+      <th>JHDUSRGDPBR</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And finally, we can try to see if recessions are more likely when the slope is negative.  In order to say that yield curve inversions might predict recessions, we need to use data from before a recession begins.  For instance, does an inversion at quarter 3 of year <span class="math notranslate nohighlight">\(t\)</span> imply that a recession is likely to begin at quarter 4 of year <span class="math notranslate nohighlight">\(t\)</span>?  We’ll use <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> to make a lagged copy of the <code class="docutils literal notranslate"><span class="pre">'Slope'</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_recession</span><span class="p">[</span><span class="s1">&#39;Lagged Slope&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_recession</span><span class="p">[</span><span class="s1">&#39;Slope&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ts_recession</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+      <th>JHDUSRGDPBR</th>
+      <th>Lagged Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+      <td>0.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+      <td>0.0</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+      <td>0.0</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+      <td>0.0</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+      <td>0.0</td>
+      <td>0.18</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>One last data-cleaning issue: <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> <em>hates</em> missing values.  It throws a fit and stops working when it sees them.  Notice that the first value of <code class="docutils literal notranslate"><span class="pre">'Lagged</span> <span class="pre">Slope'</span></code> is missing, because we can’t observe a lag for the first data point.</p>
+<p>To get rid of it, we use <code class="docutils literal notranslate"><span class="pre">.dropna()</span></code> to find all observations where the data is not missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_recession</span> <span class="o">=</span> <span class="n">ts_recession</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">ts_recession</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+      <th>JHDUSRGDPBR</th>
+      <th>Lagged Slope</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+      <td>0.0</td>
+      <td>1.13</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+      <td>0.0</td>
+      <td>0.71</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+      <td>0.0</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+      <td>0.0</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>2006Q2</th>
+      <td>4.66</td>
+      <td>4.67</td>
+      <td>4.86</td>
+      <td>4.86</td>
+      <td>4.86</td>
+      <td>4.85</td>
+      <td>4.86</td>
+      <td>4.88</td>
+      <td>4.90</td>
+      <td>0.000000</td>
+      <td>0.02</td>
+      <td>0.0</td>
+      <td>-0.02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now, we can use <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to run a logistic regression (since the y variable, <code class="docutils literal notranslate"><span class="pre">'JHDUSRGDPBR'</span></code> is only ever 0 or 1).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">ts_recession</span><span class="p">[</span><span class="s1">&#39;constant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">ts_recession</span><span class="p">[</span><span class="s1">&#39;JHDUSRGDPBR&#39;</span><span class="p">],</span> <span class="n">ts_recession</span><span class="p">[[</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span><span class="s1">&#39;Lagged Slope&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.391700
+         Iterations 6
+                           Logit Regression Results                           
+==============================================================================
+Dep. Variable:            JHDUSRGDPBR   No. Observations:                   59
+Model:                          Logit   Df Residuals:                       57
+Method:                           MLE   Df Model:                            1
+Date:                Tue, 20 Oct 2020   Pseudo R-squ.:                 0.01306
+Time:                        17:10:47   Log-Likelihood:                -23.110
+converged:                       True   LL-Null:                       -23.416
+Covariance Type:            nonrobust   LLR p-value:                    0.4342
+================================================================================
+                   coef    std err          z      P&gt;|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+constant        -1.4408      0.623     -2.314      0.021      -2.661      -0.220
+Lagged Slope    -0.3453      0.448     -0.771      0.440      -1.223       0.532
+================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>Negative <span class="math notranslate nohighlight">\(\beta\)</span> coefficients in a Logit model mean that the covariate (the right hand side variable) corresponding to that <span class="math notranslate nohighlight">\(\beta\)</span> coefficient are negatively predictive of the event.  The “event” is an instance of y=1.  So, what we see here is that a higher slope is negatively predictive of a recession.</p>
+<p>If you load a much longer dataset, you can see a similar pattern over time.</p>
+<p>The question is, why does this work?  What’s the connection between the yield curve and recessions?</p>
+<p>Let’s turn our attention to the <em>expectations hypothesis</em>, which is covered in earlier courses.  Define <span class="math notranslate nohighlight">\(y_t^{(i)}\)</span> to be the one period interest rate at time <span class="math notranslate nohighlight">\(t\)</span> for a Treasury security with <span class="math notranslate nohighlight">\(i\)</span> periods to maturity.  We thus have</p>
+<div class="math notranslate nohighlight">
+\[
+\Big(1+y_t^{(2)}\Big)^2 = \Big(1+y_t^{(1)}\Big)\text{E}_t\Big[\Big(1+y_{t+1}^{(1)}\Big)\Big]
+\]</div>
+<p>That is, the cumulative return for holding a two-year Treasury to maturity should be the same return as holding a one-year Treasury to maturity and then holding another (future) one-year Treasury to maturity after that.  At year <span class="math notranslate nohighlight">\(t\)</span>, we don’t know what the one-year Treasury will be at in year <span class="math notranslate nohighlight">\(t+1\)</span>.  Thus, we say that the <em>expected</em> value of it is <span class="math notranslate nohighlight">\(\text{E}_t\Big[\Big(1+y_{t+1}^{(1)}\Big)\Big]\)</span>, where <span class="math notranslate nohighlight">\(\text{E}\)</span> stands for expected value.</p>
+<p>Let’s define the one-year forward rate as</p>
+<div class="math notranslate nohighlight">
+\[
+\Big(1+f_{t}^{(1)}\Big) = \frac{\Big(1+y_t^{(2)}\Big)^2}{\Big(1+y_t^{(1)}\Big)}
+\]</div>
+<p>The value for <span class="math notranslate nohighlight">\(f_{t}^{(1)}\)</span> is something that we can calculate given other data at time <span class="math notranslate nohighlight">\(t\)</span>.  The Expectations Hypothesis says that this value should be a good estimate for the expected future spot rate, i.e.:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{t}^{(1)} = \text{E}_t\Big[1+y_{t+1}^{(1)}\Big]
+\]</div>
+<p>Compute the forward rate below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsq</span><span class="p">[</span><span class="s1">&#39;1Y Forward&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">tsq</span><span class="p">[</span><span class="s1">&#39;DGS2&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">tsq</span><span class="p">[</span><span class="s1">&#39;DGS1&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">tsq</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+      <th>1Y Forward</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+      <td>3.435356</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+      <td>4.198733</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+      <td>4.023858</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+      <td>4.332829</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+      <td>4.440167</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now, we shift the data ahead by 4 periods so we get a one year lag.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsq</span><span class="p">[</span><span class="s1">&#39;Last Year 1Y Forward&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsq</span><span class="p">[</span><span class="s1">&#39;1Y Forward&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">tsq</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1MO</th>
+      <th>DGS3MO</th>
+      <th>DGS6MO</th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS7</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+      <th>GDS30 growth</th>
+      <th>Slope</th>
+      <th>1Y Forward</th>
+      <th>Last Year 1Y Forward</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005Q1</th>
+      <td>1.99</td>
+      <td>2.32</td>
+      <td>2.63</td>
+      <td>2.79</td>
+      <td>3.10</td>
+      <td>3.64</td>
+      <td>3.94</td>
+      <td>4.23</td>
+      <td>4.85</td>
+      <td>NaN</td>
+      <td>1.13</td>
+      <td>3.435356</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005Q2</th>
+      <td>2.66</td>
+      <td>2.80</td>
+      <td>3.13</td>
+      <td>3.34</td>
+      <td>3.75</td>
+      <td>4.13</td>
+      <td>4.29</td>
+      <td>4.46</td>
+      <td>4.72</td>
+      <td>-0.008403</td>
+      <td>0.71</td>
+      <td>4.198733</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005Q3</th>
+      <td>3.02</td>
+      <td>3.17</td>
+      <td>3.38</td>
+      <td>3.51</td>
+      <td>3.76</td>
+      <td>3.84</td>
+      <td>3.92</td>
+      <td>4.06</td>
+      <td>4.28</td>
+      <td>0.021480</td>
+      <td>0.30</td>
+      <td>4.023858</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005Q4</th>
+      <td>3.22</td>
+      <td>3.61</td>
+      <td>4.02</td>
+      <td>4.09</td>
+      <td>4.21</td>
+      <td>4.25</td>
+      <td>4.31</td>
+      <td>4.39</td>
+      <td>4.58</td>
+      <td>0.011038</td>
+      <td>0.18</td>
+      <td>4.332829</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2006Q1</th>
+      <td>4.01</td>
+      <td>4.08</td>
+      <td>4.37</td>
+      <td>4.38</td>
+      <td>4.41</td>
+      <td>4.35</td>
+      <td>4.36</td>
+      <td>4.39</td>
+      <td>4.51</td>
+      <td>0.004454</td>
+      <td>-0.02</td>
+      <td>4.440167</td>
+      <td>3.435356</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The Expectations Hypothesis says that this one year old forward rate should be the same, on average, as what the spot rate is.  We can test this with linear regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsq2</span> <span class="o">=</span> <span class="n">tsq</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># since some missinge lagged</span>
+
+<span class="n">tsq2</span><span class="p">[</span><span class="s1">&#39;constant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># note, we&#39;ll use a constant even though, theoretically, there alpha should be zero in this relationship</span>
+
+<span class="n">eh</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">tsq2</span><span class="p">[</span><span class="s1">&#39;DGS1&#39;</span><span class="p">],</span> <span class="n">tsq2</span><span class="p">[[</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span><span class="s1">&#39;Last Year 1Y Forward&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">eh</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   DGS1   R-squared:                       0.686
+Model:                            OLS   Adj. R-squared:                  0.680
+Method:                 Least Squares   F-statistic:                     118.1
+Date:                Tue, 20 Oct 2020   Prob (F-statistic):           3.34e-15
+Time:                        17:10:47   Log-Likelihood:                -73.610
+No. Observations:                  56   AIC:                             151.2
+Df Residuals:                      54   BIC:                             155.3
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+========================================================================================
+                           coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------
+constant                -0.4118      0.207     -1.985      0.052      -0.828       0.004
+Last Year 1Y Forward     0.9291      0.086     10.865      0.000       0.758       1.101
+==============================================================================
+Omnibus:                        0.288   Durbin-Watson:                   0.273
+Prob(Omnibus):                  0.866   Jarque-Bera (JB):                0.464
+Skew:                          -0.118   Prob(JB):                        0.793
+Kurtosis:                       2.622   Cond. No.                         4.58
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(\beta\)</span> coefficient is close to 1, which is expected given the predicted relationship.</p>
+<p>What can the Expectations Hypothesis tell us?  Well, if there is a yield curve inversion, it’s because the market is expecting interest rates to be lower in the future than they are today.  Why would the market expect that?  Well, during recessions, the Fed will lower rates to stimulate growth.  Thus, it’s pretty natural, when you think about it, to expect an inversion to occur before a recession.  All it means is that bond traders are, on average, expecting a recession to occur.  A more pertinent question is <em>why</em> bond traders see a recession coming.  We’d need more data to answer that question.</p>
+<p>For our final bit of work in this section, let’s turn our attention to a different set of data that may be informative about future economic conditions: the <a class="reference external" href="https://www.federalreserve.gov/data/sloos.htm">Senior Loan Office Opinion Survey </a> published by the Federal Reserve.  We can get the data from FRED via <code class="docutils literal notranslate"><span class="pre">pandas_datareader</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">last</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">credit_cards</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;DRTSCLCC&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">credit_cards</span><span class="p">[</span><span class="s1">&#39;DRTSCLCC&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_67_1.png" src="../_images/pandas_datareader_67_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">auto_loans</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;STDSAUTO&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">auto_loans</span><span class="p">[</span><span class="s1">&#39;STDSAUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_68_1.png" src="../_images/pandas_datareader_68_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loans_except_CCandAuto</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;STDSOTHCONS&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">loans_except_CCandAuto</span><span class="p">[</span><span class="s1">&#39;STDSOTHCONS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_69_1.png" src="../_images/pandas_datareader_69_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_firms</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;DRTSCILM&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">large_firms</span><span class="p">[</span><span class="s1">&#39;DRTSCILM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_70_1.png" src="../_images/pandas_datareader_70_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small_firms</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;DRTSCIS&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">small_firms</span><span class="p">[</span><span class="s1">&#39;DRTSCIS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_datareader_71_1.png" src="../_images/pandas_datareader_71_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Ch2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="using_apis.html" title="previous page">Using APIs</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By James Nordlund<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
